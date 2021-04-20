@@ -2,6 +2,7 @@
     <wb-module deploy-name="onedayeco">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/resource"/>
         <property name="context-root" value="onedayeco"/>
         <property name="java-output-path" value="/onedayeco/WebContent/WEB-INF/classes"/>
     </wb-module>
