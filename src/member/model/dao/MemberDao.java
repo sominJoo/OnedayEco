@@ -39,6 +39,7 @@ public class MemberDao {
 			if(rs.next()) {
 				m = new Member();
 				m.setMemberId(rs.getString("member_id"));
+				m.setMemberPw(rs.getString("member_pw"));
 				m.setMemberName(rs.getString("member_name"));
 				m.setMemberNickname(rs.getString("member_nickname"));
 				m.setMemberEmail(rs.getString("member_email"));

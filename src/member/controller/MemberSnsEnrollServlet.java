@@ -21,21 +21,13 @@ import member.model.vo.Member;
  * Servlet implementation class MemberLoginServlet
  */
 @WebServlet("/login")
-public class MemberSnsLoginServlet extends HttpServlet {
+public class MemberSnsEnrollServlet extends HttpServlet {
 	private MemberService memberService = new MemberService(); 
 	
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 단순 login.jsp으로 넘김
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		response.sendRedirect(request.getContextPath()+"/WEB-INF/views/Login.jsp");
-		request.getRequestDispatcher("/WEB-INF/views/login/login.jsp").forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * sns회원가입
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		try {

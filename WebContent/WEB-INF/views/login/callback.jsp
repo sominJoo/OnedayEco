@@ -61,10 +61,6 @@
 			    	naverReprompt();
 			    	return;
 			    }
-			    else if(gender == undefined || gender == null){
-			    	naverReprompt();
-			    	return;
-			    }
 			    else if(mobile == undefined || mobile == null){
 			    	naverReprompt();
 			    	return;

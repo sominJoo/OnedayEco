@@ -34,7 +34,7 @@ body {
   display: flex;
   position: fixed;
   top: 10px;
-  margin-left: -0.3vw;
+  margin-left: -15px;
 }
 
 
@@ -197,7 +197,7 @@ body {
 
 /*Container-bar start */
 .Container-bar {
-  transform: translateY(-14.8vw);
+  transform: translateY(-15.8vw);
 
 }
 
@@ -211,11 +211,11 @@ body {
 }
 
 .Container-bar ul li {
-  transform: translateX(178px);
+  transform: translateX(171px);
   background: #00008B;
   display: block;
-  padding: 0.2vw 33.3vw;
-  margin-top: 5vw;
+  padding: 0.1vw 33.12vw;
+  margin-top: 3.8vw;
 }
 
 .Container-bar .title {
@@ -252,7 +252,7 @@ body {
 
 .Board {
   position: relative;
-  margin-left: -33vw;
+  margin-left: -39vw;
   transform: translateY(-3vw);
 }
 
@@ -280,8 +280,8 @@ body {
   border: 0;
   height: 7px;
   background: #ccc;
-  transform: translateX(-13.5vw);
-  margin-left: -26.8vw;
+  transform: translateX(-19.5vw);
+  margin-left: -20.8vw;
 }
 
 .form {
@@ -290,7 +290,7 @@ body {
 }
 
 .form input {
-  width: 100%;
+  width: 83%;
   height: 50px;
   margin-top: -5px;
   border-radius: 10px;
@@ -307,7 +307,7 @@ body {
   display: flex;
   font-weight: bold;
   font-size: 20px;
-  transform: translateX(-41.3vw);
+  transform: translateX(-47.3vw);
 }
 
 .Board-1 ul li {
@@ -323,11 +323,11 @@ body {
 
 .form1 {
   margin-top: -2.2vw;
-  transform: translateX(-14.1vw);
+  transform: translateX(-20.1vw);
 }
 
 .form1 input {
-  width: 97%;
+  width: 111%;
   height: 50px;
   margin-top: -5px;
   border-radius: 10px;
@@ -342,7 +342,7 @@ body {
   display: flex;
   font-weight: bold;
   font-size: 22px;
-  transform: translateX(-42.4vw);
+  transform: translateX(-44.9vw);
 }
 
 .Board-2 ul li {
@@ -358,11 +358,11 @@ body {
 
 .form2 {
   margin-top: -2.5vw;
-  transform: translateX(-15vw);
+  transform: translateX(-17vw);
 }
 
 .form2 input {
-  width: 99%;
+  width: 107%;
   height: 50px;
   margin-top: -4px;
   border-radius: 10px;
@@ -482,6 +482,10 @@ body {
   border-radius: 10px;
 }
 
+.form6 {
+  margin-top: 2vw;
+}
+
 .Board5-h3 {
   border: 0;
   height: 7px;
@@ -512,6 +516,7 @@ body {
   background-color: #00008B;
   color: #fff;
   font-weight: bold;
+  border: none;
 }
 
 .btn1 {
@@ -532,4 +537,31 @@ body {
   background-color: #00008B;
   color: #fff;
   font-weight: bold;
+  border: none;
+}
+
+.btn2 {
+  transform: translateX(-22vw);
+}
+
+.btn2 input {
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  background-color: #d3d3d3;
+}
+
+.btn2 input:hover {
+  background-color: #00008B;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+}
+
+
+
+#sing_up {
+  display: contents;
 }

@@ -33,13 +33,13 @@ body {
   display: flex;
   position: fixed;
   top: 10px;
-  margin-left: -4.57vw;
+  margin-left: -4.7vw;
 }
 
 .wrapper .top_navbar .slide-menu {
   width: 70px;
   height: 115%;
-  /*�빟�븳 洹몃┛�깋  */
+  /*약한 그린색  */
   background: #79CF9F;
   padding: 15px 17px;
   border-top-left-radius: 20px;
@@ -49,7 +49,7 @@ body {
 .wrapper .top_navbar .slide-menu div {
   width: 35px;
   height: 4px;
-  /*�빟�븳 釉붾（�깋 */
+  /*약한 블루색 */
   background: #00008B;
   margin: 5px 0;
   border-radius: 5px;
@@ -191,11 +191,11 @@ body {
 
 .slider {
   margin-top: 3.6vw;
-  width: 1720px;
-  height: 310px;
-  border-radius: 10px;
-  overflow: hidden;
-  transform: translateX(5.2vw);
+    width: 1720px;
+    height: 310px;
+    border-radius: 10px;
+    overflow: hidden;
+    transform: translateX(5.2vw);
 }
 
 .slides {
@@ -214,7 +214,7 @@ body {
 }
 
 .slide img {
-  width: 1930px;
+  width: 1720px;
   height: 310px;
 }
 
@@ -306,26 +306,26 @@ body {
   background: #00ff0000;
 }
 
-/*�씤湲곌쾶�떆臾� start*/
+/*인기게시물 start*/
 .Box {
   background-color: white;
-  width: 36vw;
-  height: 25vw;
-  margin-left: 53vw;
-  transform: translateY(2vw);
-  border-radius: 50px;
+    width: 36vw;
+    height: 22vw;
+    margin-left: 53vw;
+    transform: translateY(5vw);
+    border-radius: 50px;
 }
 
-/* �씤湲곌쾶�떆臾� start*/
+/* 인기게시물 start*/
 .Box1 {
   background-color: white;
-  width: 36vw;
-  height: 25vw;
-  margin-left: 13vw;
-  margin-top: -22vw;
-  transform: translateY(-1vw);
-  border-radius: 50px;
-  text-align: center;
+    width: 36vw;
+    height: 22vw;
+    margin-left: 8vw;
+    margin-top: -16vw;
+    transform: translateY(-1vw);
+    border-radius: 50px;
+    text-align: center;
 }
 
 .Box1-h2 {
@@ -333,4 +333,4 @@ body {
   padding: 0.5vw;
 }
 
-/*�씤湲곌쾶�떆臾� end*/
+/*인기게시물 end*/

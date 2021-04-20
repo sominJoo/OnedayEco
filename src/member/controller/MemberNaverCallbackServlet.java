@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class MemberLoginCallbackServlet
  */
 @WebServlet("/login/callback")
-public class MemberLoginCallbackServlet extends HttpServlet {
+public class MemberNaverCallbackServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */

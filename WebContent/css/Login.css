@@ -28,21 +28,21 @@ body {
 
 }
 
-/*�긽�떒諛� 吏��젙 */
+/*상단바 지정 */
 .wrapper .top_navbar {
   width: calc(100% - 20px);
   height: 60px;
   display: flex;
   position: fixed;
   top: 10px;
-  margin-left: -4.57vw;
+margin-left: -4.68vw;
 }
 
 
 .wrapper .top_navbar .slide-menu {
   width: 70px;
   height: 115%;
-  /*�빟�븳 洹몃┛�깋  */
+  /*약한 그린색  */
   background: #79CF9F;
   padding: 15px 17px;
   border-top-left-radius: 20px;
@@ -52,7 +52,7 @@ body {
 .wrapper .top_navbar .slide-menu div {
   width: 35px;
   height: 4px;
-  /*�빟�븳 釉붾（�깋 */
+  /*약한 블루색 */
   background: #00008B;
   margin: 5px 0;
   border-radius: 5px;
@@ -198,10 +198,10 @@ body {
 
 /*Container-bar start */
 .Container-bar {
-  transform: translateY(-4.9vw);
+  transform: translateY(-4.5vw);
 }
 
-/* border�슚怨� �븳履� left */
+/* border효과 한쪽 left */
 .Container-bar-li-left {
   border-radius: 20px 20px 20px 20px;
 }
@@ -211,11 +211,11 @@ body {
 }
 
 .Container-bar ul li {
-  transform: translateX(95px);
-  background: #00008B;
-  display: block;
-  padding: 0.0325vw 36.2vw;
-  margin-top: 7.9vw;
+    transform: translateX(98px);
+    background: #00008B;
+    display: block;
+    padding: 0.0005vw 36.5vw;
+    margin-top: 7.9vw;
 }
 
 .Container-bar .title {
@@ -224,14 +224,14 @@ body {
 }
 
 .Container-bar ul li a {
-  display: block;
-  padding: 17px;
-  color: #fff;
-  position: relative;
-  transform: translateX(125px);
-  margin-right: 11vw;
-  color: #fff;
-  white-space: nowrap;
+     display: block;
+    padding: 9px;
+    color: #fff;
+    position: relative;
+    transform: translateX(125px);
+    margin-right: 11vw;
+    color: #fff;
+    white-space: nowrap;
 }
 
 /*Container-bar end */
@@ -240,7 +240,7 @@ body {
 .Login {
   background-color: white;
   width: 1000px;
-  height: 670px;
+  height: 650px;
   transform: translateY(-2vw);
   margin-left: 26vw;
   display: inline-block;
@@ -296,10 +296,9 @@ body {
 }
 
 .Board-chk {
-  margin-top: 8.5vw;
-  margin-left: -24vw;
   font-weight: bold;
   font-size: 20px;
+  text-align: center;
 }
 
 .Board-chk-span {
@@ -313,8 +312,7 @@ body {
 }
 
 .SNS-h3 {
-  margin-top: 209px;
-  margin-left: -8vw;
+    text-align: center;
 }
 
 .SNS-img img {
@@ -327,8 +325,6 @@ body {
 }
 
 .btn {
-  margin-top: 21.5vw;
-  margin-left: -15vw;
 }
 
 .btn input:hover {
@@ -346,8 +342,6 @@ body {
 }
 
 .btn1 {
-  margin-top: 21.5vw;
-  margin-left: 4vw;
 }
 
 .btn1 input:hover {
@@ -373,7 +367,59 @@ body {
   transform: translateY(2vw);
   margin-left: 4vw;
 }
-
-#loginLable{
-	text-align: center;
+#loginLable input{
+   border-radius: 6px;
+    margin-top: 3vw;
+    margin-left: 22vw;
+    width: 150px;
+    height: 50px;
+    background: #00008B;
+    color: white;
 }
+  
+
+.loginLable-h1{
+	 font-size: 50px;
+    color: darkgray;
+    font-style: oblique;
+    margin-left: 20vw;
+    transform: translateY(24px);
+}
+
+
+.loginLable-h2{
+	font-size:50px;
+	color:#00008b;
+	    margin-top: 5vw;
+   transform: translateX(12vw);
+}
+.loginLable-img{
+	    margin-left: 21vw;
+    transform: translateY(90px);
+}
+#loginMember-Nickname{
+	 width: 105px;
+    height: 37px;
+    border-radius: 7px;
+    color: #00008b;
+    /* font-size: 20px; */
+    /* border: 1px solid #00008b; */
+    font-size: 23px;
+   
+}
+.Board-chk-sns{
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+}
+.btn-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.SNS-h3 > div{
+	display : inline-block;
+	width : 50px;
+	margin : 0 10px;
+}
+

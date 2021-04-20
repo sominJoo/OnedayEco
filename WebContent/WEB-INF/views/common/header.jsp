@@ -1,6 +1,6 @@
 <%@page import="member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+	pageEncoding="utf-8"%>
 <%
 	String msg = (String)session.getAttribute("msg");
 	if(msg != null) session.removeAttribute("msg");	
@@ -8,15 +8,16 @@
 	System.out.println("session LoginMember = "+ loginMember);
 %>
 
-    <script>
-        // 움직이는 효과   toggleclass  이벤트효과 
-        $(document).ready(function () {
-            $(".slide-menu").click(function () {
-                $(".wrapper").toggleClass("collapse");
-            });
-        });
-        </script>
+<script>
+	// 움직이는 효과   toggleclass  이벤트효과 
+	$(document).ready(function() {
+		$(".slide-menu").click(function() {
+			$(".wrapper").toggleClass("collapse");
+		});
+	});
+</script>
 </head>
+
 <body>
     <div class="wrapper">
         <div class="top_navbar">
@@ -28,17 +29,19 @@
             <div class="top_menu">
                 <div class="logo"><img src="<%=request.getContextPath() %>/image/하루에코(메인로고).png" alt=""></div>
                 <ul>
+                     <%if(loginMember !=null) { %>
+                        <li id="loginMember-Nickname">
+                            <i class="fas fa-user">
+                                <%= loginMember.getMemberNickname()%>님
+                            </i>
+                        </li>
+                    <%} %>
                     <li><a href="#">
                             <i class="fas fa-search"></i></a></li>
                     <li><a href="#">
                             <i class="fas fa-bell"></i>
-                        </a>
-                    </li>
-                    <%if(loginMember !=null) { %>
-                    <li>
-                    	<%= loginMember.getMemberNickname()%>님.
-                    </li>
-                    <%} %>
+                        </a></li>
+
                 </ul>
             </div>
         </div>
@@ -48,28 +51,22 @@
                 <li><a href="#">
                         <span class="icon"><i class="fas fa-bell"></i></span>
                         <span class="title">도전 챌린지</span></a></li>
-                <li id="loginBtn"><a onclick="loginClick();">
-                        <span class="icon"><i class="fas fa-address-card"></i></span>
-                        <span class="title">로그인</span>
-                    </a></li>
+                <li><a href="<%=request.getContextPath()%>/login/login"><span class="icon"><i class="fas fa-address-card"></i></span><span class="title">로그인</span></a></li>
                 <li><a href="#">
                         <span class="icon"><i class="fas fa-child"></i></span>
                         <span class="title">랭킹</span>
-                    </a></li>
+                    </a>
+                </li>
 
                 <li><a href="MyPage(April).html">
                         <span class="icon"><i class="far fa-calendar"></i></span>
                         <span class="title">마이페이지</span>
-                    </a></li>
+                    </a>
+                </li>
                 <li><a href="Community.html">
                         <span class="icon"><i class="fas fa-book-reader"></i></span>
                         <span class="title">커뮤니티</span>
-                    </a></li>
+                    </a>
+                </li>
             </ul>
         </div>
-        
-        <script>
-			function loginClick() {
-				location.href="<%= request.getContextPath()%>/login";
-			}
-	    </script>	
