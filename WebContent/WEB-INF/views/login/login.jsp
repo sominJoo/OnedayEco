@@ -46,12 +46,6 @@
 
 <%@ include file="/WEB-INF/views/common/header.jsp"%>
 <!-- msg, LoginMember 포함 -->
-<script>
-<% if(msg != null) { %> 
-	alert("<%= msg %>"); 
-<% } %>
-</script>
-
 	<div class="Container-bar">
 		<ul>
 			<li class="Container-bar-li-left" style="font-size: 30px;"><a

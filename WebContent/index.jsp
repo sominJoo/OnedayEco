@@ -13,39 +13,29 @@
 		
 	<%@ include file ="/WEB-INF/views/common/header.jsp" %>
 
-        <!--image slider start-->
+        <!--image slider start
         <div class="slider">
             <div class="slides">
-                <!--radio buttons start-->
                 <input type="radio" name="radio-btn" id="radio1">
                 <input type="radio" name="radio-btn" id="radio2">
                 <input type="radio" name="radio-btn" id="radio3">
                 <input type="radio" name="radio-btn" id="radio4">
                 <input type="radio" name="radio-btn" id="radio5">
-                <!--radio buttons end-->
-                <!--slide images start-->
-                <!-- 일회용품 -->
                 <div class="slide first">
                     <img src="image/메인페이지/배너m_일회용품.png" alt="">
                 </div>
-                <!-- 배너전기 -->
                 <div class="slide">
                     <img src="image/메인페이지/배너m_전기.png" alt="">
                 </div>
-                <!-- img 파일 추가예정  -->
                 <div class="slide">
                     <img src="image/메인페이지/배너m_제로웨이스트.png" alt="">
                 </div>
-                <!-- img 파일 추가예정  -->
                 <div class="slide">
                     <img src="image/메인페이지/배너m_음식.png" alt="">
                 </div>
-                <!-- img 파일 추가예정  -->
                 <div class="slide">
                     <img src="image/메인페이지/배너m_이동수단.png" alt="">
                 </div>
-                <!--slide images end-->
-                <!--automatic navigation start-->
                 <div class="navigation-auto">
                     <div class="auto-btn1"></div>
                     <div class="auto-btn2"></div>
@@ -53,9 +43,7 @@
                     <div class="auto-btn4"></div>
                     <div class="auto-btn5"></div>
                 </div>
-                <!--automatic navigation end-->
             </div>
-            <!--manual navigation start-->
             <div class="navigation-manual">
                 <label for="radio1" class="manual-btn"></label>
                 <label for="radio2" class="manual-btn"></label>
@@ -63,8 +51,8 @@
                 <label for="radio4" class="manual-btn"></label>
                 <label for="radio5" class="manual-btn"></label>
             </div>
-            <!--manual navigation end-->
         </div>
+        -->
         <!--image slider end-->
         <!--챌린지  start-->
         <div class=" Box">

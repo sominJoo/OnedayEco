@@ -15,6 +15,9 @@
 			$(".wrapper").toggleClass("collapse");
 		});
 	});
+	<% if(msg != null) { %> 
+	alert("<%= msg %>"); 
+	<% } %>
 </script>
 </head>
 
@@ -58,7 +61,7 @@
                     </a>
                 </li>
 
-                <li><a href="MyPage(April).html">
+                <li><a href="<%=request.getContextPath()%>/mypage">
                         <span class="icon"><i class="far fa-calendar"></i></span>
                         <span class="title">마이페이지</span>
                     </a>
