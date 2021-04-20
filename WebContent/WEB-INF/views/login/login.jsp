@@ -146,7 +146,7 @@
 
 <script type="text/javascript">
 	function loginFrmSubmit(){
-// 		$("#loginFrm").submit();
+ 		$("#loginFrm").submit();
 		console.log("loginFrm 제출");
 	}
 	function logout(){
