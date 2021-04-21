@@ -124,7 +124,4 @@ window.addEventListener('keyup', e => {
     }
 });
 
-document.querySelector('.reset').addEventListener('click', e => {
-    clearActiveDays();
-    clearRange();
-});
+

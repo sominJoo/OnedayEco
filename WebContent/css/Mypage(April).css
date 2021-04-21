@@ -200,6 +200,8 @@ body {
     margin-left: 70px;
 }
 
+
+
 /*Container-bar start */
 .Container-bar {
     transform: translateY(-16vw);
@@ -299,6 +301,8 @@ body {
     margin-left: -11vw;
     transform: translateY(-2vw);
 }
+
+
 
 .calendar {
     transform: translateX(-11vw);
@@ -441,14 +445,14 @@ body {
 }
 
 /* ex) 3월  이후버튼 */
-.calendar-wrap .btn {
+.btn {
     text-decoration: auto;
     display: block;
     transform: translateX(-19vw);
 }
 
 /* ex) 3월  이전버튼 */
-.calendar-wrap .btn1 {
+.btn1 {
     text-decoration: auto;
     display: block;
     transform: translateY(3vw);

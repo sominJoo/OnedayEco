@@ -84,7 +84,20 @@
 				<h2 class="SNS">소셜로그인</h2>
 				<!-- 구글 로그인 -->
 				<div class="Google">
-					<div class="g-signin2" onclick="onSignIn();"></div>
+					<div class="g-signin2" data-onsuccess="onSignIn"></div>
+					<script>
+					function onSignIn(googleUser) {
+						var profile = auth2.currentUser.get()
+									.getBasicProfile();
+						var id = "G_" + profile.getId();
+						var name = profile.getName();
+						var nickname = profile.getName();
+						var email = profile.getEmail();
+						var mobile = null;
+						snsloginMember(id, name, email, nickname, mobile);
+
+					}
+					</script>
 				</div>
 				<!-- 카카오 로그인 -->
 				<div class="SNS_img" id=" kakaoLogin">
@@ -168,20 +181,6 @@
 	    });
 		_auth2.disconnect();
 	}
-	
-    function onSignIn() {
-		var auth2 = gapi.auth2.getAuthInstance();
-		if (auth2.isSignedIn.get()) {
-			var profile = auth2.currentUser.get().getBasicProfile();
-			var id = "G_" + profile.getId();
-			var name = profile.getName();
-			var nickname = profile.getName();
-			var email = profile.getEmail();
-			var mobile = null;
-			snsloginMember(id, name, email, nickname, mobile);
-		}
-	}
-
 	$(function() {
 		/*
 		 * 로그인 폼 유효성 검사 

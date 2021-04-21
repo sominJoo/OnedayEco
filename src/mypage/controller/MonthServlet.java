@@ -8,21 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class MypageViewServlet
+ * Servlet implementation class MonthServlet
  */
-@WebServlet("/mypage")
-public class MypageViewServlet extends HttpServlet {
+@WebServlet("/mypage/month")
+public class MonthServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 단순 연결
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int month = Integer.valueOf(request.getParameter("month"));
-		
-		request.setAttribute("month", month);
-		request.getRequestDispatcher("/WEB-INF/views/mypage/mypage.jsp").forward(request, response);;
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-
 
 }
