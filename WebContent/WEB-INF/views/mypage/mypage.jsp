@@ -1,12 +1,21 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="mypage.model.vo.MypageBadge"%>
+<%@page import="java.util.List"%>
 <%@page import="java.util.Calendar"%>
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
 <%
 	Calendar now = Calendar.getInstance();
-	//int month = now.get(Calendar.MONTH)+1;
 	int month = request.getParameter("month") != null ? Integer.valueOf(request.getParameter("month")) :  now.get(Calendar.MONTH)+1;
 	String[] month_arr ={"January" , "February", "March", "April", "May", "June", "July", "August", "September","October","November", "December"};
+
+	//뱃지 
+	List<MypageBadge> badgeList = (List<MypageBadge>)request.getAttribute("badgeList");
+	for(MypageBadge m :badgeList){
+		System.out.println(m);
+	}
+	
 %>
 <!DOCTYPE html>
 <html lang="ko" class="no-js">
@@ -14,7 +23,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>마이페이지(4월)</title>
+    <title>마이페이지</title>
     <link rel="stylesheet" href="<%= request.getContextPath()%>/css/Mypage(April).css">
     <script src="<%= request.getContextPath()%>/js/Calendar.js"></script>
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
@@ -24,12 +33,12 @@
     <!-- 깜빡임 현상 줄이기 -->
     <script>
         $(function () {
-
             $('html').removeClass('no-js');
-
         });
     </script>
+    
 	<%@ include file ="/WEB-INF/views/common/header.jsp" %>
+
         <div class="Container-bar">
             <ul>
                 <li class="Container-bar-li-left" style="font-size: 30px;"><a href="#"><span
@@ -58,54 +67,52 @@
             </thead>
             
     <% switch(month){
-    case 1: %>    
+    case 1:%>    
+    		
            <tbody id ="1">
             <tr class="week">
+                <td class="day prev-mon" tabindex="0"><span class="day-number">27</span></td>
                 <td class="day prev-mon" tabindex="0"><span class="day-number">28</span></td>
                 <td class="day prev-mon" tabindex="0"><span class="day-number">29</span></td>
                 <td class="day prev-mon" tabindex="0"><span class="day-number">30</span></td>
-                <td class="day prev-mon" tabindex="0"><span class="day-number">31</span></td>
-                <td class="day" tabindex="0"><span class="day-img"><img src="image/캘린더(뱃지)/환경의-민족.png" alt=""
-                            style="border: 0; cursor: pointer;"
-                            onclick="window.open('Popup(January).html','new','width=1000, height=600,  resizable=no')"
-                            ;></span>
-                <td class="day " tabindex="0"><span class="day-number">1</span></td>
-                <td class="day " tabindex="0"><span class="day-number">2</span></td>
+                <td class="day prev-mon" tabindex="0"><span class="day-number">31</span>
+                <td class="day " tabindex="0"><span class="day-number day-click">01</span></td>
+                <td class="day " tabindex="0"><span class="day-number day-click">02</span></td>
             </tr>
             <tr class="week">
-                <td class="day" tabindex="0"><span class="day-number">3</span></td>
-                <td class="day" tabindex="0"><span class="day-number">4</span></td>
-                <td class="day" tabindex="0"><span class="day-number">5</span></td>
-                <td class="day" tabindex="0"><span class="day-number">6</span></td>
-                <td class="day" tabindex="0"><span class="day-number">7</span></td>
-                <td class="day" tabindex="0"><span class="day-number">8</span></td>
-                <td class="day" tabindex="0"><span class="day-number">9</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">03</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">04</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">05</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">06</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">07</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">08</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">09</span></td>
             </tr>
             <tr class="week">
-                <td class="day" tabindex="0"><span class="day-number">10</span></td>
-                <td class="day" tabindex="0"><span class="day-number">11</span></td>
-                <td class="day" tabindex="0"><span class="day-number">12</span></td>
-                <td class="day" tabindex="0"><span class="day-number">13</span></td>
-                <td class="day" tabindex="0"><span class="day-number">14</span></td>
-                <td class="day" tabindex="0"><span class="day-number">15</span></td>
-                <td class="day" tabindex="0"><span class="day-number">16</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">10</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">11</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">12</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">13</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">14</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">15</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">16</span></td>
             </tr>
             <tr class="week">
-                <td class="day" tabindex="0"><span class="day-number">17</span></td>
-                <td class="day" tabindex="0"><span class="day-number">18</span></td>
-                <td class="day" tabindex="0"><span class="day-number">19</span></td>
-                <td class="day" tabindex="0"><span class="day-number">20</span></td>
-                <td class="day" tabindex="0"><span class="day-number">21</span></td>
-                <td class="day" tabindex="0"><span class="day-number">22</span></td>
-                <td class="day" tabindex="0"><span class="day-number">23</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">17</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">18</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">19</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">20</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">21</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">22</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">23</span></td>
             </tr>
             <tr class="week">
-                <td class="day" tabindex="0"><span class="day-number">24</span></td>
-                <td class="day" tabindex="0"><span class="day-number">25</span></td>
-                <td class="day" tabindex="0"><span class="day-number">26</span></td>
-                <td class="day" tabindex="0"><span class="day-number">27</span></td>
-                <td class="day" tabindex="0"><span class="day-number">28</span></td>
-                <td class="day" tabindex="0"><span class="day-number">29</span></td>
+                <td class="day" tabindex="0"><span class="day-number  day-click">24</span></td>
+                <td class="day" tabindex="0"><span class="day-number  day-click">25</span></td>
+                <td class="day" tabindex="0"><span class="day-number  day-click">26</span></td>
+                <td class="day" tabindex="0"><span class="day-number  day-click">27</span></td>
+                <td class="day" tabindex="0"><span class="day-number  day-click">28</span></td>
+                <td class="day" tabindex="0"><span class="day-number  day-click">29</span></td>
                 <td class="day next-mon" tabindex="0"><span class="day-number">30</span></td>
             </tr>
         </tbody>
@@ -114,52 +121,48 @@
        	<tbody id ="2">
             <tr class="week">
                 <td class="day prev-mon" tabindex="0"><span class="day-number">30</span></td>
-                <td class="day prev-mon" tabindex="0"><span class="day-number">1</span></td>
-                <td class="day prev-mon" tabindex="0"><span class="day-number">2</span></td>
-                <td class="day" tabindex="0"><span class="day-img"><img src="image/캘린더(뱃지)/환경의-민족.png" alt=""
-                            style="border: 0; cursor: pointer;"
-                            onclick="window.open('Popup(February).html','new','width=1000, height=600,  resizable=no')"
-                            ;></span>
-                </td>
-                <td class="day " tabindex="0"><span class="day-number">4</span></td>
-                <td class="day " tabindex="0"><span class="day-number">5</span></td>
-                <td class="day " tabindex="0"><span class="day-number">6</span></td>
+                <td class="day " tabindex="0"><span class="day-number day-click">01</span></td>
+                <td class="day " tabindex="0"><span class="day-number day-click">02</span></td>
+                <td class="day " tabindex="0"><span class="day-number day-click">03</span></td>
+                <td class="day " tabindex="0"><span class="day-number day-click">04</span></td>
+                <td class="day " tabindex="0"><span class="day-number day-click">05</span></td>
+                <td class="day " tabindex="0"><span class="day-number day-click">06</span></td>
             </tr>
             <tr class="week">
-                <td class="day" tabindex="0"><span class="day-number">7</span></td>
-                <td class="day" tabindex="0"><span class="day-number">8</span></td>
-                <td class="day" tabindex="0"><span class="day-number">9</span></td>
-                <td class="day" tabindex="0"><span class="day-number">10</span></td>
-                <td class="day" tabindex="0"><span class="day-number">11</span></td>
-                <td class="day" tabindex="0"><span class="day-number">12</span></td>
-                <td class="day" tabindex="0"><span class="day-number">13</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">07</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">08</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">09</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">10</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">11</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">12</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">13</span></td>
             </tr>
             <tr class="week">
-                <td class="day" tabindex="0"><span class="day-number">14</span></td>
-                <td class="day" tabindex="0"><span class="day-number">15</span></td>
-                <td class="day" tabindex="0"><span class="day-number">16</span></td>
-                <td class="day" tabindex="0"><span class="day-number">17</span></td>
-                <td class="day" tabindex="0"><span class="day-number">18</span></td>
-                <td class="day" tabindex="0"><span class="day-number">19</span></td>
-                <td class="day" tabindex="0"><span class="day-number">20</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">14</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">15</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">16</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">17</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">18</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">19</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">20</span></td>
             </tr>
             <tr class="week">
-                <td class="day" tabindex="0"><span class="day-number">21</span></td>
-                <td class="day" tabindex="0"><span class="day-number">22</span></td>
-                <td class="day" tabindex="0"><span class="day-number">23</span></td>
-                <td class="day" tabindex="0"><span class="day-number">24</span></td>
-                <td class="day" tabindex="0"><span class="day-number">25</span></td>
-                <td class="day" tabindex="0"><span class="day-number">26</span></td>
-                <td class="day" tabindex="0"><span class="day-number">27</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">21</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">22</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">23</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">24</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">25</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">26</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">27</span></td>
             </tr>
             <tr class="week">
-                <td class="day" tabindex="0"><span class="day-number">28</span></td>
-                <td class="day" tabindex="0"><span class="day-number">1</span></td>
-                <td class="day" tabindex="0"><span class="day-number">2</span></td>
-                <td class="day" tabindex="0"><span class="day-number">3</span></td>
-                <td class="day" tabindex="0"><span class="day-number">4</span></td>
-                <td class="day" tabindex="0"><span class="day-number">5</span></td>
-                <td class="day next-mon" tabindex="0"><span class="day-number">6</span></td>
+                <td class="day" tabindex="0"><span class="day-number day-click">28</span></td>
+                <td class="day next-mon" tabindex="0"><span class="day-number">01</span></td>
+                <td class="day next-mon" tabindex="0"><span class="day-number">02</span></td>
+                <td class="day next-mon" tabindex="0"><span class="day-number">03</span></td>
+                <td class="day next-mon" tabindex="0"><span class="day-number">04</span></td>
+                <td class="day next-mon" tabindex="0"><span class="day-number">05</span></td>
+                <td class="day next-mon" tabindex="0"><span class="day-number">06</span></td>
             </tr>
         </tbody>
     
@@ -168,52 +171,48 @@
 		<tbody id ="3">
 			<tr class="week">
 				<td class="day prev-mon" tabindex="0"><span class="day-number">30</span></td>
-				<td class="day prev-mon" tabindex="0"><span class="day-number">1</span></td>
-				<td class="day prev-mon" tabindex="0"><span class="day-number">2</span></td>
-				<td class="day" tabindex="0"><span class="day-img"><img
-						src="image/캘린더(뱃지)/환경의-민족.png" alt=""
-						style="border: 0; cursor: pointer;"
-						onclick="window.open('Popup(March).html','new','width=1000, height=600,  resizable=no')";></span>
-				</td>
-				<td class="day " tabindex="0"><span class="day-number">4</span></td>
-				<td class="day " tabindex="0"><span class="day-number">5</span></td>
-				<td class="day " tabindex="0"><span class="day-number">6</span></td>
+				<td class="day " tabindex="0"><span class="day-number day-click">01</span></td>
+				<td class="day " tabindex="0"><span class="day-number day-click">02</span></td>
+				<td class="day " tabindex="0"><span class="day-number day-click">03</span></td>
+				<td class="day " tabindex="0"><span class="day-number day-click">04</span></td>
+				<td class="day " tabindex="0"><span class="day-number day-click">05</span></td>
+				<td class="day " tabindex="0"><span class="day-number day-click">06</span></td>
 			</tr>
 			<tr class="week">
-				<td class="day" tabindex="0"><span class="day-number">7</span></td>
-				<td class="day" tabindex="0"><span class="day-number">8</span></td>
-				<td class="day" tabindex="0"><span class="day-number">9</span></td>
-				<td class="day" tabindex="0"><span class="day-number">10</span></td>
-				<td class="day" tabindex="0"><span class="day-number">11</span></td>
-				<td class="day" tabindex="0"><span class="day-number">12</span></td>
-				<td class="day" tabindex="0"><span class="day-number">13</span></td>
+				<td class="day" tabindex="0"><span class="day-number day-click">07</span></td>
+				<td class="day" tabindex="0"><span class="day-number day-click">08</span></td>
+				<td class="day" tabindex="0"><span class="day-number day-click">09</span></td>
+				<td class="day" tabindex="0"><span class="day-number day-click">10</span></td>
+				<td class="day" tabindex="0"><span class="day-number day-click">11</span></td>
+				<td class="day" tabindex="0"><span class="day-number day-click">12</span></td>
+				<td class="day" tabindex="0"><span class="day-number day-click">13</span></td>
 			</tr>
 			<tr class="week">
-				<td class="day" tabindex="0"><span class="day-number">14</span></td>
-				<td class="day" tabindex="0"><span class="day-number">15</span></td>
-				<td class="day" tabindex="0"><span class="day-number">16</span></td>
-				<td class="day" tabindex="0"><span class="day-number">17</span></td>
-				<td class="day" tabindex="0"><span class="day-number">18</span></td>
-				<td class="day" tabindex="0"><span class="day-number">19</span></td>
-				<td class="day" tabindex="0"><span class="day-number">20</span></td>
+				<td class="day" tabindex="0"><span class="day-number day-click">14</span></td>
+				<td class="day" tabindex="0"><span class="day-number day-click">15</span></td>
+				<td class="day" tabindex="0"><span class="day-number day-click">16</span></td>
+				<td class="day" tabindex="0"><span class="day-number day-click">17</span></td>
+				<td class="day" tabindex="0"><span class="day-number day-click">18</span></td>
+				<td class="day" tabindex="0"><span class="day-number day-click">19</span></td>
+				<td class="day" tabindex="0"><span class="day-number day-click">20</span></td>
 			</tr>
 			<tr class="week">
-				<td class="day" tabindex="0"><span class="day-number">21</span></td>
-				<td class="day" tabindex="0"><span class="day-number">22</span></td>
-				<td class="day" tabindex="0"><span class="day-number">23</span></td>
-				<td class="day" tabindex="0"><span class="day-number">24</span></td>
-				<td class="day" tabindex="0"><span class="day-number">25</span></td>
-				<td class="day" tabindex="0"><span class="day-number">26</span></td>
-				<td class="day" tabindex="0"><span class="day-number">27</span></td>
+				<td class="day" tabindex="0"><span class="day-number  day-click">21</span></td>
+				<td class="day" tabindex="0"><span class="day-number  day-click">22</span></td>
+				<td class="day" tabindex="0"><span class="day-number  day-click">23</span></td>
+				<td class="day" tabindex="0"><span class="day-number  day-click">24</span></td>
+				<td class="day" tabindex="0"><span class="day-number  day-click">25</span></td>
+				<td class="day" tabindex="0"><span class="day-number  day-click">26</span></td>
+				<td class="day" tabindex="0"><span class="day-number  day-click">27</span></td>
 			</tr>
 			<tr class="week">
-				<td class="day" tabindex="0"><span class="day-number">28</span></td>
-				<td class="day" tabindex="0"><span class="day-number">29</span></td>
-				<td class="day" tabindex="0"><span class="day-number">30</span></td>
-				<td class="day" tabindex="0"><span class="day-number">31</span></td>
-				<td class="day" tabindex="0"><span class="day-number">1</span></td>
-				<td class="day" tabindex="0"><span class="day-number">2</span></td>
-				<td class="day next-mon" tabindex="0"><span class="day-number">3</span></td>
+				<td class="day" tabindex="0"><span class="day-number  day-click">28</span></td>
+				<td class="day" tabindex="0"><span class="day-number  day-click">29</span></td>
+				<td class="day" tabindex="0"><span class="day-number  day-click">30</span></td>
+				<td class="day" tabindex="0"><span class="day-number  day-click">31</span></td>
+				<td class="day next-mon" tabindex="0"><span class="day-number">01</span></td>
+				<td class="day next-mon" tabindex="0"><span class="day-number">02</span></td>
+				<td class="day next-mon" tabindex="0"><span class="day-number">03</span></td>
 			</tr>
 		</tbody>
 
@@ -225,50 +224,46 @@
                <td class="day prev-mon" tabindex="0"><span class="day-number">29</span></td>
                <td class="day prev-mon" tabindex="0"><span class="day-number">30</span></td>
                <td class="day prev-mon" tabindex="0"><span class="day-number">31</span></td>
-               <td class="day" tabindex="0"><span class="day-img"><img src="image/캘린더(뱃지)/환경의-민족.png" alt=""
-                           style="border: 0; cursor: pointer;"
-                           onclick="window.open('Popup(April).html','new','width=1000, height=600,  resizable=no')"
-                           ;></span>
-               </td>
-               <td class=" day " tabindex=" 0"><span class="day-number">1</span></td>
-               <td class="day " tabindex="0"><span class="day-number">2</span></td>
-               <td class="day " tabindex="0"><span class="day-number">3</span></td>
+               <td class="day prev-mon" tabindex="0"><span class="day-number">31</span></td>
+               <td class="day" tabindex=" 0"><span class="day-number  day-click">01</span></td>
+               <td class="day " tabindex="0"><span class="day-number  day-click">02</span></td>
+               <td class="day " tabindex="0"><span class="day-number  day-click">03</span></td>
            </tr>
            <tr class="week">
-               <td class="day" tabindex="0"><span class="day-number">4</span></td>
-               <td class="day" tabindex="0"><span class="day-number">5</span></td>
-               <td class="day" tabindex="0"><span class="day-number">6</span></td>
-               <td class="day" tabindex="0"><span class="day-number">7</span></td>
-               <td class="day" tabindex="0"><span class="day-number">8</span></td>
-               <td class="day" tabindex="0"><span class="day-number">9</span></td>
-               <td class="day" tabindex="0"><span class="day-number">10</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">04</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">05</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">06</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">07</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">08</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">09</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">10</span></td>
            </tr>
            <tr class="week">
-               <td class="day" tabindex="0"><span class="day-number">11</span></td>
-               <td class="day" tabindex="0"><span class="day-number">12</span></td>
-               <td class="day" tabindex="0"><span class="day-number">13</span></td>
-               <td class="day" tabindex="0"><span class="day-number">14</span></td>
-               <td class="day" tabindex="0"><span class="day-number">15</span></td>
-               <td class="day" tabindex="0"><span class="day-number">16</span></td>
-               <td class="day" tabindex="0"><span class="day-number">17</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">11</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">12</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">13</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">14</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">15</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">16</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">17</span></td>
            </tr>
            <tr class="week">
-               <td class="day" tabindex="0"><span class="day-number">18</span></td>
-               <td class="day" tabindex="0"><span class="day-number">19</span></td>
-               <td class="day" tabindex="0"><span class="day-number">20</span></td>
-               <td class="day" tabindex="0"><span class="day-number">21</span></td>
-               <td class="day" tabindex="0"><span class="day-number">22</span></td>
-               <td class="day" tabindex="0"><span class="day-number">23</span></td>
-               <td class="day" tabindex="0"><span class="day-number">24</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">18</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">19</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">20</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">21</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">22</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">23</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">24</span></td>
            </tr>
            <tr class="week">
-               <td class="day" tabindex="0"><span class="day-number">25</span></td>
-               <td class="day" tabindex="0"><span class="day-number">26</span></td>
-               <td class="day" tabindex="0"><span class="day-number">27</span></td>
-               <td class="day" tabindex="0"><span class="day-number">28</span></td>
-               <td class="day" tabindex="0"><span class="day-number">39</span></td>
-               <td class="day" tabindex="0"><span class="day-number">30</span></td>
-               <td class="day next-mon" tabindex="0"><span class="day-number">1</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">25</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">26</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">27</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">28</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">39</span></td>
+               <td class="day" tabindex="0"><span class="day-number day-click">30</span></td>
+               <td class="day next-mon" tabindex="0"><span class="day-number">01</span></td>
            </tr>
        </tbody>
     <% break;
@@ -278,54 +273,55 @@
                     <td class="day prev-mon" tabindex="0"><span class="day-number">25</span></td>
                     <td class="day prev-mon" tabindex="0"><span class="day-number">26</span></td>
                     <td class="day prev-mon" tabindex="0"><span class="day-number">27</span></td>
-                    <td class="day" tabindex="0"><span class="day-img"><img src="image/캘린더(뱃지)/환경의-민족.png" alt=""
-                                style="border: 0; cursor: pointer;"
-                                onclick="window.open('Popup(May).html','new','width=1000, height=600,  resizable=no')"
-                                ;></span>
-                    </td>
-                    <td class="day " tabindex="0"><span class="day-number">29</span></td>
-                    <td class="day " tabindex="0"><span class="day-number">30</span></td>
-                    <td class="day " tabindex="0"><span class="day-number">1</span></td>
+                    <td class="day prev-mon" tabindex="0"><span class="day-number">28</span></td>
+                    <td class="day prev-mon" tabindex="0"><span class="day-number">29</span></td>
+                    <td class="day prev-mon" tabindex="0"><span class="day-number">30</span></td>
+                    <td class="day " tabindex="0"><span class="day-number  day-click">01</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">2</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">3</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">4</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">5</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">6</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">7</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">8</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">02</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">03</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">04</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">05</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">06</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">07</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">08</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">9</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">10</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">11</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">12</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">13</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">14</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">15</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">09</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">10</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">11</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">12</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">13</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">14</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">15</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">16</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">17</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">18</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">19</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">20</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">21</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">22</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">16</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">17</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">18</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">19</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">20</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">21</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">22</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">23</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">24</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">25</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">26</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">27</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">28</span></td>
-                    <td class="day next-mon" tabindex="0"><span class="day-number">29</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">23</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">24</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">25</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">26</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">27</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">28</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">29</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">30</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">31</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">30</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">31</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">01</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">02</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">03</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">04</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">05</span></td>
                 </tr>
             </tbody>
     <% break;
@@ -333,52 +329,48 @@
             <tbody id ="6">
                 <tr class="week">
                     <td class="day prev-mon" tabindex="0"><span class="day-number">30</span></td>
-                    <td class="day prev-mon" tabindex="0"><span class="day-number">1</span></td>
-                    <td class="day prev-mon" tabindex="0"><span class="day-number">2</span></td>
-                    <td class="day" tabindex="0"><span class="day-img"><img src="image/캘린더(뱃지)/환경의-민족.png" alt=""
-                                style="border: 0; cursor: pointer;"
-                                onclick="window.open('Popup(june).html','new','width=1000, height=600,  resizable=no')"
-                                ;></span>
-                    </td>
-                    <td class="day " tabindex="0"><span class="day-number">4</span></td>
-                    <td class="day " tabindex="0"><span class="day-number">5</span></td>
-                    <td class="day " tabindex="0"><span class="day-number">6</span></td>
+                    <td class="day prev-mon" tabindex="0"><span class="day-number">31</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">01</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">02</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">03</span></td>
+                    <td class="day " tabindex="0"><span class="day-number day-click">04</span></td>
+                    <td class="day " tabindex="0"><span class="day-number day-click">05</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">7</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">8</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">9</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">10</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">11</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">12</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">13</span></td>
+                    <td class="day " tabindex="0"><span class="day-number day-click">06</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">07</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">08</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">09</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">10</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">11</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">12</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">14</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">15</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">16</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">17</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">18</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">19</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">20</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">13</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">14</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">15</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">16</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">17</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">18</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">19</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">21</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">22</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">23</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">24</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">25</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">26</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">27</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">20</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">21</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">22</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">23</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">24</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">25</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">26</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">28</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">29</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">30</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">1</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">2</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">3</span></td>
-                    <td class="day next-mon" tabindex="0"><span class="day-number">4</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">27</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">28</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">29</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">30</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">01</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">02</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">03</span></td>
                 </tr>
             </tbody>
     <% break;
@@ -388,156 +380,143 @@
                     <td class="day prev-mon" tabindex="0"><span class="day-number">27</span></td>
                     <td class="day prev-mon" tabindex="0"><span class="day-number">28</span></td>
                     <td class="day prev-mon" tabindex="0"><span class="day-number">29</span></td>
-                    <td class="day" tabindex="0"><span class="day-img"><img src="image/캘린더(뱃지)/환경의-민족.png" alt=""
-                                style="border: 0; cursor: pointer;"
-                                onclick="window.open('Popup(July).html','new','width=1000, height=600,  resizable=no')"
-                                ;></span>
-                    </td>
-                    <td class="day " tabindex="0"><span class="day-number">1</span></td>
-                    <td class="day " tabindex="0"><span class="day-number">2</span></td>
-                    <td class="day " tabindex="0"><span class="day-number">3</span></td>
+                    <td class="day prev-mon" tabindex="0"><span class="day-number">30</span></td>
+                    <td class="day " tabindex="0"><span class="day-number day-click">01</span></td>
+                    <td class="day " tabindex="0"><span class="day-number day-click">02</span></td>
+                    <td class="day " tabindex="0"><span class="day-number day-click">03</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">4</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">5</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">6</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">7</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">8</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">9</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">10</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">04</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">05</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">06</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">07</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">08</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">09</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">10</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">11</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">12</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">13</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">14</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">15</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">16</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">17</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">11</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">12</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">13</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">14</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">15</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">16</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">17</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">18</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">19</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">20</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">21</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">22</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">23</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">24</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">18</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">19</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">20</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">21</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">22</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">23</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">24</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">25</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">26</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">27</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">28</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">29</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">30</span></td>
-                    <td class="day next-mon" tabindex="0"><span class="day-number">31</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">25</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">26</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">27</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">28</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">29</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">30</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">31</span></td>
                 </tr>
             </tbody>
     <% break;
-    case 8:%>
+    case 8: %>
             <tbody id ="8">
                 <tr class="week">
-                    <td class="day prev-mon" tabindex="0"><span class="day-number">1</span></td>
-                    <td class="day prev-mon" tabindex="0"><span class="day-number">2</span></td>
-                    <td class="day prev-mon" tabindex="0"><span class="day-number">3</span></td>
-                    <td class="day" tabindex="0"><span class="day-img"><img src="image/캘린더(뱃지)/환경의-민족.png" alt=""
-                                style="border: 0; cursor: pointer;"
-                                onclick="window.open('Popup(August).html','new','width=1000, height=600,  resizable=no')"
-                                ;></span>
-                    </td>
-                    <td class="day " tabindex="0"><span class="day-number">5</span></td>
-                    <td class="day " tabindex="0"><span class="day-number">6</span></td>
-                    <td class="day " tabindex="0"><span class="day-number">7</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">01</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">02</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">03</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">04</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">05</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">06</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">07</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">8</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">9</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">10</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">11</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">12</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">13</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">14</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">08</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">09</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">10</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">11</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">12</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">13</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">14</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">15</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">16</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">17</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">18</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">19</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">20</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">21</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">15</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">16</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">17</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">18</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">19</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">20</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">21</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">18</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">19</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">20</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">21</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">22</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">23</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">24</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">22</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">23</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">24</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">25</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">26</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">27</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">28</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">25</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">26</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">27</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">28</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">39</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">30</span></td>
-                    <td class="day next-mon" tabindex="0"><span class="day-number">1</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">29</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">30</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">31</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">01</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">02</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">03</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">04</span></td>
                 </tr>
             </tbody>
     <% break;
     case 9:%>
             <tbody id ="9">
                 <tr class="week">
+                    <td class="day prev-mon" tabindex="0"><span class="day-number">29</span></td>
                     <td class="day prev-mon" tabindex="0"><span class="day-number">30</span></td>
-                    <td class="day prev-mon" tabindex="0"><span class="day-number">1</span></td>
-                    <td class="day prev-mon" tabindex="0"><span class="day-number">2</span></td>
-                    <td class="day" tabindex="0"><span class="day-img"><img src="image/캘린더(뱃지)/환경의-민족.png" alt=""
-                                style="border: 0; cursor: pointer;"
-                                onclick="window.open('Popup(March).html','new','width=1000, height=600,  resizable=no')"
-                                ;></span>
-                    </td>
-                    <td class="day " tabindex="0"><span class="day-number">4</span></td>
-                    <td class="day " tabindex="0"><span class="day-number">5</span></td>
-                    <td class="day " tabindex="0"><span class="day-number">6</span></td>
+                    <td class="day prev-mon" tabindex="0"><span class="day-number">31</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">01</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">02</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">04</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">7</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">8</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">9</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">10</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">11</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">12</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">13</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">05</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">06</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">07</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">08</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">09</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">10</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">11</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">14</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">15</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">16</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">17</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">18</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">19</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">20</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">12</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">13</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">14</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">15</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">16</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">17</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">18</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">21</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">22</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">23</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">24</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">25</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">26</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">27</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">19</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">20</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">21</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">22</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">23</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">24</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">25</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">28</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">29</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">30</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">31</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">1</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">2</span></td>
-                    <td class="day next-mon" tabindex="0"><span class="day-number">3</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">26</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">27</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">28</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">29</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">30</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">01</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">02</span></td>
                 </tr>
             </tbody>    
     <% break;
@@ -547,50 +526,55 @@
                     <td class="day prev-mon" tabindex="0"><span class="day-number">26</span></td>
                     <td class="day prev-mon" tabindex="0"><span class="day-number">27</span></td>
                     <td class="day prev-mon" tabindex="0"><span class="day-number">28</span></td>
-                    <td class="day" tabindex="0"><span class="day-img"><img src="image/캘린더(뱃지)/환경의-민족.png" alt=""
-                                style="border: 0; cursor: pointer;"
-                                onclick="window.open('Popup(October).html','new','width=1000, height=600,  resizable=no')"
-                                ;></span>
-                    </td>
-                    <td class="day " tabindex="0"><span class="day-number">30</span></td>
-                    <td class="day " tabindex="0"><span class="day-number">1</span></td>
-                    <td class="day " tabindex="0"><span class="day-number">2</span></td>
+                    <td class="day prev-mon" tabindex="0"><span class="day-number">29</span></td>
+                    <td class="day prev-mon" tabindex="0"><span class="day-number">30</span></td>
+                    <td class="day " tabindex="0"><span class="day-number day-click">01</span></td>
+                    <td class="day " tabindex="0"><span class="day-number day-click">02</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">3</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">4</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">5</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">6</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">7</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">8</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">9</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">03</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">04</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">05</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">06</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">07</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">08</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">09</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">10</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">11</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">12</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">13</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">14</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">15</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">16</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">10</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">11</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">12</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">13</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">14</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">15</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">16</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">17</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">18</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">19</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">20</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">21</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">22</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">23</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">17</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">18</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">19</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">20</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">21</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">22</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">23</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">24</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">25</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">26</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">27</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">28</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">29</span></td>
-                    <td class="day next-mon" tabindex="0"><span class="day-number">30</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">24</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">25</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">26</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">27</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">28</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">29</span></td>
+                    <td class="day " tabindex="0"><span class="day-number day-click">30</span></td>
+                </tr>
+                <tr class="week">
+                    <td class="day" tabindex="0"><span class="day-number day-click">31</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">01</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">02</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">03</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">04</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">05</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">06</span></td>
                 </tr>
             </tbody>
     
@@ -598,53 +582,49 @@
     case 11:%>            
     	<tbody id ="11">
                 <tr class="week">
-                    <td class="day prev-mon" tabindex="0"><span class="day-number">1</span></td>
-                    <td class="day prev-mon" tabindex="0"><span class="day-number">2</span></td>
-                    <td class="day prev-mon" tabindex="0"><span class="day-number">3</span></td>
-                    <td class="day" tabindex="0"><span class="day-img"><img src="image/캘린더(뱃지)/환경의-민족.png" alt=""
-                                style="border: 0; cursor: pointer;"
-                                onclick="window.open('Popup(November).html','new','width=1000, height=600,  resizable=no')"
-                                ;></span>
-                    </td>
-                    <td class="day " tabindex="0"><span class="day-number">5</span></td>
-                    <td class="day " tabindex="0"><span class="day-number">6</span></td>
-                    <td class="day " tabindex="0"><span class="day-number">7</span></td>
+                    <td class="day prev-mon" tabindex="0"><span class="day-number">31</span></td>
+                    <td class="day " tabindex="0"><span class="day-number day-click">01</span></td>
+                    <td class="day " tabindex="0"><span class="day-number day-click">02</span></td>
+                    <td class="day " tabindex="0"><span class="day-number day-click">03</span></td>
+                    <td class="day " tabindex="0"><span class="day-number day-click">04</span></td>
+                    <td class="day " tabindex="0"><span class="day-number day-click">05</span></td>
+                    <td class="day " tabindex="0"><span class="day-number day-click">06</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">8</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">9</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">10</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">11</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">12</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">13</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">14</span></td>
+                    <td class="day " tabindex="0"><span class="day-number day-click">07</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">08</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">09</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">10</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">11</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">12</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">13</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">15</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">16</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">17</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">18</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">19</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">20</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">21</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">14</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">15</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">16</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">17</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">18</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">19</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">20</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">18</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">19</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">20</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">21</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">22</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">23</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">24</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">21</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">22</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">23</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">24</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">25</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">26</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">27</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">25</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">26</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">27</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">28</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">39</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">30</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">28</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">39</span></td>
+                    <td class="day" tabindex="0"><span class="day-number day-click">30</span></td>
                     <td class="day next-mon" tabindex="0"><span class="day-number">1</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">2</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">3</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number">4</span></td>
                 </tr>
             </tbody>
     
@@ -655,49 +635,45 @@
                     <td class="day prev-mon" tabindex="0"><span class="day-number">28</span></td>
                     <td class="day prev-mon" tabindex="0"><span class="day-number">29</span></td>
                     <td class="day prev-mon" tabindex="0"><span class="day-number">30</span></td>
-                    <td class="day" tabindex="0"><span class="day-img"><img src="image/캘린더(뱃지)/환경의-민족.png" alt=""
-                                style="border: 0; cursor: pointer;"
-                                onclick="window.open('Popup(December).html','new','width=1000, height=600,  resizable=no')"
-                                ;></span>
-                    </td>
-                    <td class="day " tabindex="0"><span class="day-number">2</span></td>
-                    <td class="day " tabindex="0"><span class="day-number">3</span></td>
-                    <td class="day " tabindex="0"><span class="day-number">4</span></td>
+                    <td class="day " tabindex="0"><span class="day-number day-click" >01</span></td>
+                    <td class="day " tabindex="0"><span class="day-number day-click" >02</span></td>
+                    <td class="day " tabindex="0"><span class="day-number day-click" >03</span></td>
+                    <td class="day " tabindex="0"><span class="day-number day-click" >04</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">5</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">6</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">7</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">8</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">9</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">10</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">11</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">05</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">06</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">07</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">08</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">09</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">10</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">11</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">12</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">13</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">14</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">15</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">16</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">17</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">18</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">12</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">13</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">14</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">15</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">16</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">17</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">18</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">19</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">20</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">21</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">22</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">23</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">24</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">25</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">19</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">20</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">21</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">22</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">23</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">24</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">25</span></td>
                 </tr>
                 <tr class="week">
-                    <td class="day" tabindex="0"><span class="day-number">26</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">27</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">28</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">29</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">30</span></td>
-                    <td class="day" tabindex="0"><span class="day-number">31</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">26</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">27</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">28</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">29</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">30</span></td>
+                    <td class="day" tabindex="0"><span class="day-number  day-click">31</span></td>
                     <td class="day next-mon" tabindex="0"><span class="day-number">1</span></td>
                 </tr>
             </tbody>
@@ -724,7 +700,7 @@
     </div>
     <div class="Member-change">
         <ul>
-            <li class="Container-bar-li-left" style="font-size: 30px;"><a href="Member Modify.html"><span
+            <li class="Container-bar-li-left" style="font-size: 30px;"><a href="<%= request.getContextPath()%>/mypage/memberModify"><span
                         class="title">회원정보
                         수정</span></a>
             </li>
@@ -742,37 +718,67 @@
     		alert("1월까지 준비되어있습니다");
     		return;
     	};
+		location.href ="<%= request.getContextPath()%>/mypage?month=" + previousMonth;
 
-		location.href="<%request.getContextPath()%>/mypage?month="+previousMonth;
- 		//그 전 tbody 
-		
-		//그전 
-		$month.text(previousMonth);
-		$monthEng.text(month_arr[previousMonth-1]);
-		console.log($("#"+previousMonth));
-    	var $tbody_add = $("#"+previousMonth);
-    	console.log($tbody_add);
-    	$tbody_add.appendTo(".calendar");
     }
     
     
     function next(){
 		//month에 해당하는 tbody
-		var $month = $("#month_span");
-		var $monthEng= $("#month-eng");
-    	var $tbody = $("#"+$month.text());
-    	console.log($tbody);
-    	
+		var $month = $("#month_span");    	
     	var nextMonth = Number($month.text()) +1;
     	if(nextMonth  == 13 ){
     		alert("12월까지 준비되어있습니다");
     		return;
     	}
-    	console.log(nextMonth);
-    	console.log(month_arr[nextMonth]);
+		location.href ="<%= request.getContextPath()%>/mypage?month=" + nextMonth;
+    }
+    
+    
+    //페이지 로드 완료 시 뱃지
+    $(document).ready (function(){
+    	<%
+    	String badge_date = "";
+    	for(MypageBadge m :badgeList){
+    		String sdf = new SimpleDateFormat("yyyy-MM-dd").format(m.getBadgeDate());
+    		badge_date = sdf.substring(sdf.length()-2, sdf.length());
+    		
+    	%>
+    		$date = $('span:contains("<%= badge_date %>")');
+    		$date.removeClass('day-number');
+    		$date.removeClass('day-click').addClass('day-img');
+
+    		var htmlString = '<img src="<%=request.getContextPath()%>/image/뱃지/<%=m.getBadgeImg()%>"'
+    						+' style=" height : 2.5em; border: 0; cursor: pointer;"'
+    						+' onclick= "openPopup(event);"'
+    						+ 'data-date= "<%= badge_date %>"'
+    						+'>';
+ 			$date.html(htmlString);
+
+    	<%}%>		
     	
-		$month.text(nextMonth);
-		$monthEng.text(month_arr[nextMonth]);
+    	$('.day-click').attr('onclick', 'openPopup_date(event)');
+    });
+    
+    var openPopup= function(event){
+		//클릭된 이미지, 클릭된 이미지의 date 가져오기
+   		var $ele= $(event.target);
+		console.log($ele);
+		var url ="<%=request.getContextPath() %>/mypage/mypagePopup?month="+<%= month%>  + "&date="+$ele.data('date');
+		var title= "DetailPopup";
+    
+		window.open(url, title, "width=1000, height=600,  resizable=no");
+    }
+    
+    //단순 날짜
+    var openPopup_date= function(event){
+		//클릭된 이미지, 클릭된 이미지의 date 가져오기
+   		var $ele= $(event.target);
+		console.log($ele.text());
+		var url ="<%=request.getContextPath() %>/mypage/mypagePopup?month="+<%= month%>  + "&date="+$ele.text();
+		var title= "DetailPopup";
+    
+		window.open(url, title, "width=1000, height=600,  resizable=no");
     }
     </script>
 

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import member.model.service.MemberService;
 import member.model.vo.Member;
+import common.MvcUtils;
 import common.onedayecoUtils;
 
 /**
@@ -35,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		String memberId =request.getParameter("memberId");
-		String memberPw=request.getParameter("memberPw");
+		String memberPw=MvcUtils.getSha512(request.getParameter("memberPw"));
 		String SaveId= request.getParameter("saveId");
 		System.out.println("하루에코(ID)= " +memberId);
 		System.out.println("하루에코(PW)=" +memberPw);

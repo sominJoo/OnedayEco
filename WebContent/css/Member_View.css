@@ -295,6 +295,8 @@ body {
   height: 50px;
   margin-top: -5px;
   border-radius: 10px;
+  padding :0 10px;
+  font-size: 20px;
 }
 
 .Board-1 {
@@ -332,6 +334,8 @@ body {
   height: 50px;
   margin-top: -5px;
   border-radius: 10px;
+  padding :0 10px;
+  font-size: 20px;
 }
 
 .Board-2 {
@@ -367,6 +371,8 @@ body {
   height: 50px;
   margin-top: -4px;
   border-radius: 10px;
+  padding :0 10px;
+  font-size: 20px;
 }
 
 .Board-3 {
@@ -407,6 +413,8 @@ body {
   height: 50px;
   margin-top: -9px;
   border-radius: 10px;
+  padding :0 10px;
+  font-size: 20px;
 }
 
 .Board-4 {
@@ -445,6 +453,8 @@ body {
   height: 51px;
   margin-top: -10px;
   border-radius: 10px;
+  padding :0 10px;
+  font-size: 20px;
 }
 
 .Board-5 {
@@ -481,6 +491,8 @@ body {
   height: 50px;
   margin-top: -5px;
   border-radius: 10px;
+  padding :0 10px;
+  font-size: 20px;
 }
 
 .Board5-h3 {
@@ -490,4 +502,8 @@ body {
   transform: translateX(-16vw);
   margin-left: -27vw;
   margin-top: -1px;
+}
+
+
+.Member-change {
 }

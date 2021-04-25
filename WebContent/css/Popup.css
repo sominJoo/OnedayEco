@@ -28,7 +28,7 @@ body{
   display: table-caption;
     margin-left: 30px;
 }
-.scroll span{
+.scroll-span{
   display: flex;
   white-space: nowrap;
   margin-top: -2vw;
@@ -42,7 +42,7 @@ body{
 .scroll ul {
   font-size: 19px;
     width: 45vw;
-    height: 27.5vw;
+    height: 14.5vw;
     /* transform: translateY(0vw); */
     margin-top: 1vw;
     margin-right: -20vw;
@@ -61,11 +61,16 @@ body{
 .Date .scroll .span{
     margin-left: -1vw;
     list-style: none;
+    width :386px;
+    height: 133px;
+    border : 1px solid black;
 }
 .Date .img{
   height: 400px;
-  margin-right: 0.5vw;
-  margin-top: -32.5vw;
+  width: 425px;
+  margin-right: 0;
+  margin-left: 56vw;
+  margin-top: -39.5vw;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -73,7 +78,6 @@ body{
   font-size: 50px;
   font-weight: bold;
   white-space: nowrap;
-  margin-left: -22vw;
   color: #00bfff;
   margin-top: 6vw;
 }
@@ -93,10 +97,33 @@ body{
   margin-top: -7vw;
   list-style: none;
   font-size: 30px;
-  transform: translateX(85vw);
 }
 .img img{
   float: right;
-  transform: translateX(-10vw);
+  margin-top: 6vh;
+  transform: translateX(10vw);
 }
- 
+
+.Date .header li:hover{
+	cursor : pointer;	
+}
+.img .scroll-span-badge{
+	text-align: center;
+    margin-top: -7vw;
+    list-style: none;
+    font-size: 30px;
+    transform: translateX(85vw);    
+    font-weight: bold;
+}
+
+.scroll li{
+	width:350px;
+}
+.bold{
+    font-weight: bold;	
+}
+.bold2{
+    font-weight: bold;	
+    color: black;
+	
+}

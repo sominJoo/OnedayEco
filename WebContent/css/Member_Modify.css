@@ -30,11 +30,11 @@ body {
 /*상단바 지정 */
 .wrapper .top_navbar {
   width: calc(100% - 20px);
-  height: 60px;
-  display: flex;
-  position: fixed;
-  top: 10px;
-  margin-left: -1.5vw;
+    height: 60px;
+    display: flex;
+    position: fixed;
+    top: 10px;
+    margin-left: -21.1vw
 }
 
 
@@ -197,9 +197,9 @@ body {
 
 /*Container-bar start */
 .Container-bar {
-  transform: translateY(-18vw);
-
+      transform: translateY(-16.2vw);
 }
+
 
 /* border효과 한쪽 left */
 .Container-bar-li-left {
@@ -211,11 +211,11 @@ body {
 }
 
 .Container-bar ul li {
-  transform: translateX(151px);
-  background: #00008B;
-  display: block;
-  padding: 0.2vw 33.3vw;
-  margin-top: 5vw;
+    background: #00008B;
+    display: block;
+    padding: -1.8vw 33.3vw;
+    padding: 0.1vw 20vw;
+    margin-top: 5vw;
 }
 
 .Container-bar .title {
@@ -237,8 +237,8 @@ body {
 /*Container-bar end */
 /*img start*/
 .img {
-  margin-left: 48vw;
-  transform: translateY(-17.5vw);
+ margin-left: 32vw;
+    transform: translateY(-14.5vw);
 }
 
 .img-h2 {
@@ -252,9 +252,9 @@ body {
 
 
 .Board {
-  position: relative;
-  margin-left: -25vw;
-  transform: translateY(-3vw);
+     position: relative;
+    margin-left: -17vw;
+    transform: translateY(-3vw);
 }
 
 .Board ul {
@@ -270,11 +270,10 @@ body {
 }
 
 .Board ul li a {
-  position: absolutea;
   color: #111;
-  margin-right: 24vw;
-  display: block;
-  padding: 10px;
+    margin-right: 23.4vw;
+    display: block;
+    padding: 10px;
 }
 
 .Board-h3 {
@@ -287,14 +286,14 @@ body {
 
 .form {
   margin-top: -2.3vw;
-  transform: translateX(-13.3vw);
+  transform: translateX(-14.3vw);
 }
 
 .form input {
-  width: 100%;
-  height: 50px;
-  margin-top: -5px;
-  border-radius: 10px;
+      width: 104%;
+    height: 50px;
+    margin-top: -5px;
+    border-radius: 10px;
 }
 
 .Board-1 {
@@ -490,4 +489,35 @@ body {
   transform: translateX(-16vw);
   margin-left: -27vw;
   margin-top: -1px;
+}
+
+
+
+.Board-6{
+  margin-left: -56.7vw;
+  transform: translateY(350px);
+}
+
+
+.Board-6 input:hover {
+  background-color: #2e4ead;
+  color: white;
+  cursor: pointer;
+}
+
+.Board-6 input{
+  font-weight: bold;
+  border-radius: 8px;
+  width: 150px;
+  height: 70px;
+  background-color: #e1ecf2;
+  font-size: 22px;
+  margin-right: 4vw;
+}
+#loginMember-Nickname{
+	transform: translateY(4px);
+    font-size: 20px;
+}
+#Pw_Modify{
+	
 }

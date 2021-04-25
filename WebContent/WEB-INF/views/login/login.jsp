@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%
 	//사용자 쿠키처리
     String SaveId = null;
@@ -18,7 +18,7 @@
 <html lang="ko" dir="ltr">
 
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>로그인</title>
 <link rel="stylesheet"
@@ -69,7 +69,7 @@
 				<span class="Board-icon1"><i class="fas fa-key"
 					style="font-size: 100px;"></i> </span>
 				<div class="form-Pw">
-					<input type="text" id="memberPw" name="memberPw" placeholder="●●●●">
+					<input type="password" id="memberPw" name="memberPw" placeholder="●●●●">
 				</div>
 			</div>
 		</form>
@@ -87,8 +87,7 @@
 					<div class="g-signin2" data-onsuccess="onSignIn"></div>
 					<script>
 					function onSignIn(googleUser) {
-						var profile = auth2.currentUser.get()
-									.getBasicProfile();
+						  var profile = googleUser.getBasicProfile();
 						var id = "G_" + profile.getId();
 						var name = profile.getName();
 						var nickname = profile.getName();

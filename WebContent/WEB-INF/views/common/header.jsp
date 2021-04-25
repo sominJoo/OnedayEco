@@ -1,6 +1,6 @@
 <%@page import="member.model.vo.Member"%>
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%
 	String msg = (String)session.getAttribute("msg");
 	if(msg != null) session.removeAttribute("msg");	
@@ -16,7 +16,7 @@
 		});
 	});
 	<% if(msg != null) { %> 
-	alert("<%= msg %>"); 
+		alert("<%= msg %>"); 
 	<% } %>
 </script>
 </head>
