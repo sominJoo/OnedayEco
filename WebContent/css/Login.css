@@ -234,10 +234,12 @@ margin-left: -4.68vw;
     white-space: nowrap;
 }
 
+
 /*Container-bar end */
 
 /*Login start*/
 .Login {
+	text-transform:uppercase;
   background-color: white;
   width: 1000px;
   height: 650px;
@@ -248,7 +250,7 @@ margin-left: -4.68vw;
 
 .Login-h2 {
   text-align: center;
-  font-size: 40px;
+  font-size: 80px;
   margin-top: 10px;
 }
 
@@ -263,14 +265,15 @@ margin-left: -4.68vw;
 }
 
 .form {
-  margin-top: 26px;
-  margin-left: 11px;
+   margin-top: 33px;
+    margin-left: 11px;
 }
 
 .form input {
-  width: 100%;
-  padding: 31px;
-  padding-right: 11vw;
+     border-radius: 25px;
+    width: 100%;
+    padding: 22px;
+    padding-right: 11vw;
 }
 
 .Board-Pw {
@@ -290,15 +293,18 @@ margin-left: -4.68vw;
 }
 
 .form-Pw input {
-  width: 100%;
-  padding: 31px;
-  padding-right: 11vw;
+ width: 100%;
+    padding: 21px;
+    border-radius: 25px;
+    padding-right: 11vw;
 }
 
 .Board-chk {
-  font-weight: bold;
-  font-size: 20px;
-  text-align: center;
+   font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    transform: translateX(-4vw);
+    margin-top: 13px;
 }
 
 .Board-chk-span {
@@ -306,10 +312,17 @@ margin-left: -4.68vw;
 }
 
 .Board-chk input {
+	transform: translateY(7px);
   width: 150px;
-  height: 30px;
+  height: 20px;
   margin-left: -3vw;
 }
+.SNS{
+	    transform: translateX(16vw);
+    margin-top: 7px;
+	
+}
+
 
 .SNS-h3 {
     text-align: center;
@@ -322,54 +335,55 @@ margin-left: -4.68vw;
 
 .Find-Id {
   margin-top: 5px;
+    transform: translateX(16vw);
 }
-
-.btn {
-}
-
-.btn input:hover {
-  background-color: #2e4ead;
-  color: white;
+.Find-Pw{
+	transform: translateX(16vw);
 }
 
 .btn input {
-  font-weight: bold;
-  border-radius: 8px;
-  width: 150px;
-  height: 70px;
-  background-color: #e1ecf2;
-  font-size: 22px;
+font-weight: bold;
+    border-radius: 8px;
+    width: 150px;
+    height: 70px;
+    background-color: black;
+    color: white;
+    font-size: 28px;
 }
 
-.btn1 {
-}
 
-.btn1 input:hover {
-  background-color: #2e4ead;
-  color: white;
-}
 
 .btn1 input {
-  border-radius: 10px;
-  font-size: 23px;
-  font-weight: bold;
-  width: 150px;
-  height: 70px;
+     background-color: black;
+    font-size: 23px;
+    font-weight: bold;
+    width: 150px;
+    height: 70px;
+    color: white;
+    border-radius: 10px;
+    text-transform: uppercase;
 }
 
 /*Login end*/
+
+.SNS_img{
+	transform: translateX(12vw);
+}
+.google{
+transform: translateX(24vw)
+}
+
+
 .naver {
   transform: translateX(11vw);
-  margin-top: -3vw;
 }
 
 .Google {
-  transform: translateY(2vw);
-  margin-left: 4vw;
+     transform: translateX(24vw);
 }
 #loginLable input{
    border-radius: 6px;
-    margin-top: 3vw;
+    margin-top: 1vw;
     margin-left: 22vw;
     width: 150px;
     height: 50px;
@@ -382,7 +396,7 @@ margin-left: -4.68vw;
 	 font-size: 50px;
     color: darkgray;
     font-style: oblique;
-    margin-left: 20vw;
+    margin-left: 18vw;
     transform: translateY(24px);
 }
 
@@ -398,13 +412,13 @@ margin-left: -4.68vw;
     transform: translateY(90px);
 }
 #loginMember-Nickname{
-	 width: 105px;
-    height: 37px;
-    border-radius: 7px;
-    color: #00008b;
+	width: 105px;
+    height: 36px;
+    transform: translateX(-8px);
     /* font-size: 20px; */
     /* border: 1px solid #00008b; */
-    font-size: 23px;
+    font-size: 22px;
+    white-space: nowrap;
    
 }
 .Board-chk-sns{
@@ -414,12 +428,22 @@ margin-left: -4.68vw;
 }
 .btn-wrapper{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    transform: translateX(16vw);
+    margin-top: 17px;
 }
 
 .SNS-h3 > div{
-	display : inline-block;
-	width : 50px;
-	margin : 0 10px;
+	    display: inline-block;
+    width: 62px;
+    margin: 11px 12px;
 }
+.loginLable-btn{
+	    transform: translateX(-20vw);
+    margin-top: -31vw;
+}
+
+
+
+
 

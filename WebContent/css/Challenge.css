@@ -1,0 +1,43 @@
+@charset "UTF-8";
+/*하루 챌린지 관련*/
+
+/*기간 챌린지 관련*/
+.panel, .flip {
+	padding: 5px;
+	text-align: center;
+	border: solid 2px black;
+}
+
+.panel {
+	display: none;
+}
+
+/*챌린지 관리(updateChallenge) 관련*/
+.update{
+	background-color : #e1ecf2;
+	border: 0;
+	outline: 0;
+}
+
+.hidden_id {
+	display: none;
+}
+
+.updateChallenge-container {
+	margin-left: 13vw;
+}
+
+/*챌린지 등록(insert) 관련*/
+textarea {
+	resize: none;
+}
+
+#name {
+	width: 70vw;
+	height: 2vw;
+}
+#content{
+	width: 70vw;
+	height: 25vw;
+	
+}

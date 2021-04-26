@@ -197,7 +197,7 @@ body {
 /*Container-bar start */
 .Container-bar {
   margin-left: 10vw;
-  transform: translateY(-3.6vw);
+  transform: translateY(0.4vw);
 
 }
 
@@ -287,6 +287,9 @@ body {
   text-align: center;
   margin-left: 13vw;
   transform: translateY(1vw);
+}
+#loginMember-Nickname{
+	font-size: 25px;
 }
 
 /* .WATE{

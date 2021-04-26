@@ -34,4 +34,17 @@ public class onedayecoUtils {
 		return  encryptedPassword;
 	}
 
+
+	public static String convertLindeFeedToBr(String content) {
+		return content.replaceAll("\\n", "<br/>");
+	}
+
+
+	public static String escapeHtml(String str) {
+		// TODO Auto-generated method stub
+		return str.replaceAll("<","%lt;")
+				  .replaceAll(">", "&gt;");
+	}
+
+
 }

@@ -115,6 +115,8 @@ public class MypageDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = prop.getProperty("selectPoint");
+		System.out.println(date_sql);
+		System.out.println("selectPoint@sql"+sql);
 		List<MypagePoint> mPointList = new ArrayList<MypagePoint>();
 		
 		try {
@@ -131,6 +133,7 @@ public class MypageDao {
 				mPointList.add(mPoint);
 			}
 		} catch (SQLException e) {
+			e.printStackTrace();
 			throw new MemberException("POPUP 포인트 조회 오류",e);
 		}finally {
 			close(rs);
@@ -166,6 +169,91 @@ public class MypageDao {
 			close(pstmt);
 		}
 		return mChallengeList;
+	}
+
+	public List<MypagePoint> selectPointList(Connection conn, Date date, Member member) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = prop.getProperty("selectPointMonth");
+		List<MypagePoint> mPointList = new ArrayList<MypagePoint>();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setDate(1, date);
+			pstmt.setDate(2, date);
+			pstmt.setString(3, member.getMemberId());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				MypagePoint mPoint = new MypagePoint();
+				mPoint.setPoint(rs.getInt("point"));
+				mPoint.setPointDate(rs.getDate("point_date"));
+				mPointList.add(mPoint);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new MemberException("POPUP 포인트 조회 오류",e);
+		}finally {
+			close(rs);
+			close(pstmt);
+		}		
+		return mPointList;
+	}
+
+	public List<MypagePoint> selectTeamPoint(Connection conn, Date date_sql, String memberId) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = prop.getProperty("selectTeamPoint");
+		List<MypagePoint> mPointList = new ArrayList<MypagePoint>();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setDate(1, date_sql);
+			pstmt.setString(2, memberId);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				MypagePoint mPoint = new MypagePoint();
+				mPoint.setPoint(rs.getInt("point"));
+				mPoint.setPointDate(rs.getDate("point_date"));
+				mPoint.setChallengName(rs.getString("challenge_name"));
+				mPoint.setChallengeTermType(rs.getString("challenge_term_type"));
+				mPointList.add(mPoint);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new MemberException("POPUP 포인트 조회 오류",e);
+		}finally {
+			close(rs);
+			close(pstmt);
+		}		
+		return mPointList;
+	}
+
+	public List<MypagePoint> selectTPointList(Connection conn, Date date, Member member) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = prop.getProperty("selectTeamPointMonth");
+		List<MypagePoint> mTPointList = new ArrayList<MypagePoint>();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setDate(1, date);
+			pstmt.setDate(2, date);
+			pstmt.setString(3, member.getMemberId());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				MypagePoint mPoint = new MypagePoint();
+				mPoint.setPoint(rs.getInt("point"));
+				mPoint.setPointDate(rs.getDate("point_date"));
+				mTPointList.add(mPoint);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new MemberException("POPUP 포인트 조회 오류",e);
+		}finally {
+			close(rs);
+			close(pstmt);
+		}		
+		return mTPointList;
 	}
 
 }

@@ -10,6 +10,7 @@
 	//null 가능
 	List<MypageBadge> mBadgeList =(List<MypageBadge>)request.getAttribute("mBadgeList"); 
 	List<MypagePoint> mPointList =(List<MypagePoint>)request.getAttribute("mPointList");
+	List<MypagePoint> mTPointList =(List<MypagePoint>)request.getAttribute("mtPointList");
 	List<MypageChallenge> mChallengeList = (List<MypageChallenge>)request.getAttribute("mChallengeList");
 	
 	String dateStr = date<10 ? "0"+date : Integer.toString(date);
@@ -136,8 +137,8 @@
             <img src="image/팝업창/뱃지.png" alt="">
             <!-- 포인트 -->
             <span class="scroll-span">이날 성공한 챌린지</span>
-            <%if(mPointList != null){ %>
             <ul>
+            <%if(mPointList != null){ %>
             	<%for(MypagePoint mp :mPointList) {%>
             		<%if (mp.getChallengeTermType() == "S"){ %>
                 	<li><span class="bold">[하루]</span> <%= mp.getChallengName()%> <span class="bold"><%=mp.getPoint() %>점</span></li>
@@ -145,8 +146,14 @@
                 	<li><span class="bold">[기간]</span> <%= mp.getChallengName()%> <span class="bold"><%=mp.getPoint() %>점</span></li>
            			<% }%>
            		<% }%>
-            </ul>
            	<% }%>
+           	<!-- 팀포인트 -->
+            <%if(mTPointList != null){ %>
+           		<%for(MypagePoint mtp :mTPointList) {%>
+                	<li><span class="bold">[팀]</span> <%= mtp.getChallengName()%> <span class="bold"><%=mtp.getPoint() %>점</span></li>
+           		<% }%>
+           	<% }%>
+            </ul>
             <!-- 진행 챌린지 -->
             <span class="scroll-span">진행 중인 장기챌린지 </span>
             <%if(mChallengeList != null){ %>

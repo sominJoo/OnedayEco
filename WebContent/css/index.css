@@ -312,7 +312,7 @@ body {
     width: 36vw;
     height: 22vw;
     margin-left: 53vw;
-    transform: translateY(5vw);
+    transform: translateY(2vw);
     border-radius: 50px;
 }
 
@@ -322,15 +322,30 @@ body {
     width: 36vw;
     height: 22vw;
     margin-left: 8vw;
-    margin-top: -16vw;
+    margin-top: -19vw;
     transform: translateY(-1vw);
     border-radius: 50px;
     text-align: center;
 }
+.Box1 h1{
+	text-transform: uppercase;
+    color: #00008b;
+    font-size: 70px;
+}
+.Box1 img{
+    transform: translateY(24px);
+}
+.Box1 a{
+	color: darkgray;
+}
+
+
 
 .Box1-h2 {
-  transform: translateX(-14vw);
-  padding: 0.5vw;
+  transform: translateX(-4vw);
+    text-transform: uppercase;
+    padding: 0.5vw;
+    font-size: 50px;
 }
 
 /*인기게시물 end*/

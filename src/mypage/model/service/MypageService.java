@@ -47,4 +47,28 @@ public class MypageService {
 		return mChallengeList;
 	}
 
+
+	public List<MypagePoint> selectPointList(Date date, Member member) {
+		Connection conn = getConnection();
+		List<MypagePoint> mPointList= mypageDao.selectPointList(conn, date, member);
+		close(conn);
+		return mPointList;
+	}
+
+
+	public List<MypagePoint> selectTeamPoint(Date date_sql, String memberId) {
+		Connection conn = getConnection();
+		List<MypagePoint> mPointList= mypageDao.selectTeamPoint(conn, date_sql, memberId);
+		close(conn);
+		return mPointList;
+	}
+
+
+	public List<MypagePoint> selectTPointList(Date date, Member member) {
+		Connection conn = getConnection();
+		List<MypagePoint> mTPointList= mypageDao.selectTPointList(conn, date, member);
+		close(conn);
+		return mTPointList;
+	}
+
 }

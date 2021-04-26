@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import member.model.vo.Member;
 import mypage.model.service.MypageService;
 import mypage.model.vo.MypageBadge;
+import mypage.model.vo.MypagePoint;
 
 /**
  * Servlet implementation class MypageViewServlet
@@ -53,10 +54,15 @@ public class MypageViewServlet extends HttpServlet {
 		//뱃지 이미지 가져오는 업무 (멤버 아이디, 해당 달)
 		List<MypageBadge> badgeList = mypageService.selectBadgeImage(date,member);	
 
-		
+
+		//포인트 가져오는 업무 (멤버 아이디, 해당 달)
+		List<MypagePoint> pointList = mypageService.selectPointList(date,member);	
+		List<MypagePoint> tPointList = mypageService.selectTPointList(date,member);	
 		
 		request.setAttribute("month", month);		
 		request.setAttribute("badgeList", badgeList);		
+		request.setAttribute("pointList", pointList);		
+		request.setAttribute("tPointList", tPointList);		
 		request.getRequestDispatcher("/WEB-INF/views/mypage/mypage.jsp").forward(request, response);
 	}
 

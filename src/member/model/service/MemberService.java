@@ -7,6 +7,9 @@ import static common.JDBCTemplate.*;
 import java.sql.Connection;
 public class MemberService {
 	private MemberDao memberDao = new MemberDao(); 
+
+	public static final String MEMBER_ROLE = "U";
+	public static final String ADMIN_ROLE = "A";
 	
 	
 	public Member selectMemberOne(String memberId) {

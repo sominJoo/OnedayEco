@@ -24,7 +24,9 @@ import member.model.vo.Member;
 	"/member/updatePassword",
 	"/board/boardForm",
 	"/logout",
-	"/mypage"
+	"/mypage",
+	"/mypage/mypagePopup"
+	
 })
 public class LoginFilter implements Filter {
 

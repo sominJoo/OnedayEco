@@ -1,3 +1,4 @@
+<%@page import="mypage.model.vo.MypagePoint"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="mypage.model.vo.MypageBadge"%>
 <%@page import="java.util.List"%>
@@ -12,6 +13,8 @@
 
 	//뱃지 
 	List<MypageBadge> badgeList = (List<MypageBadge>)request.getAttribute("badgeList");
+	List<MypagePoint> pointList = (List<MypagePoint>)request.getAttribute("pointList");
+	List<MypagePoint> tPointList = (List<MypagePoint>)request.getAttribute("tPointList");
 	for(MypageBadge m :badgeList){
 		System.out.println(m);
 	}
@@ -758,6 +761,25 @@
     	<%}%>		
     	
     	$('.day-click').attr('onclick', 'openPopup_date(event)');
+    	
+    	<%
+    	String point_date = "";
+    	for(MypagePoint mp :pointList){
+    		String sdf = new SimpleDateFormat("yyyy-MM-dd").format(mp.getPointDate());
+    		point_date = sdf.substring(sdf.length()-2, sdf.length());
+    	%>
+			$('span:contains("<%= point_date %>")').css('color','#81D4FA');
+
+    	<%}%>		
+    	<%
+    	String team_point_date = "";
+    	for(MypagePoint mp :tPointList){
+    		String sdf = new SimpleDateFormat("yyyy-MM-dd").format(mp.getPointDate());
+    		team_point_date = sdf.substring(sdf.length()-2, sdf.length());
+    	%>
+			$('span:contains("<%= team_point_date %>")').css('color','#81D4FA');
+
+    	<%}%>	
     });
     
     var openPopup= function(event){

@@ -47,11 +47,15 @@ public class MypagePopupServlet extends HttpServlet {
 			System.out.println("mBadgeList : "+m);
 		
 		
-		//Point 정보(해당 날짜)  - null 가능
+		//개인 Point 정보(해당 날짜)  - null 가능 
 		List<MypagePoint> mPointList =  mypageService.selectPoint(date_sql, member.getMemberId());
 		for(MypagePoint m : mPointList)
 			System.out.println("mPointList : "+m);
 
+		//팀 Point 정보(해당 날짜)  - null 가능 
+		List<MypagePoint> mTPointList =  mypageService.selectTeamPoint(date_sql, member.getMemberId());
+		for(MypagePoint m : mTPointList)
+			System.out.println("mTPointList : "+m);
 		
 		//진행중인 challenge 가져오는 업무
 		List<MypageChallenge> mChallengeList =  mypageService.selectChallenge(member.getMemberId());
@@ -63,6 +67,7 @@ public class MypagePopupServlet extends HttpServlet {
 		request.setAttribute("mBadgeList", mBadgeList);
 		request.setAttribute("mPointList", mPointList);
 		request.setAttribute("mChallengeList", mChallengeList);
+		request.setAttribute("mTPointList", mTPointList);
 		request.getRequestDispatcher("/WEB-INF/views/mypage/mypagePopup.jsp").forward(request, response);;
 	}
 
