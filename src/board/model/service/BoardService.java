@@ -7,6 +7,7 @@ import java.util.List;
 import board.model.dao.BoardDao;
 import board.model.vo.Attachment;
 import board.model.vo.Board;
+import onedayeco.article.model.vo.Article;
 
 public class BoardService {
 	private BoardDao boardDao = new BoardDao();
@@ -20,9 +21,9 @@ public class BoardService {
 		return totalContents;
 	}
 
-	public Board selectOne(int no) {
+	public Article selectOne(int no) {
 		Connection conn = getConnection();
-		Board board = boardDao.selectOne(conn, no);
+		Article board = boardDao.selectOne(conn, no);
 		close(conn);
 		return board;
 	}
@@ -32,6 +33,20 @@ public class BoardService {
 		Board board = boardDao.selectcount(conn, count);
 		close(conn);
 		return board;
+	}
+
+	public int selectBoardNoC() {
+		Connection conn = getConnection();
+		int boardNoC = boardDao.selectBoardNoC(conn);
+		close(conn);
+		return boardNoC;
+	}
+
+	public int selectBoardNoH() {
+		Connection conn = getConnection();
+		int boardNoH = boardDao.selectBoardNoH(conn);
+		close(conn);
+		return boardNoH;
 	}
 
 

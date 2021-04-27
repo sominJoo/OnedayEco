@@ -34,7 +34,6 @@ body {
   display: flex;
   position: fixed;
   top: 10px;
-  margin-left:-52px;
 }
 
 
@@ -197,8 +196,8 @@ body {
 
 /*Container-bar start */
 .Container-bar {
-    /* margin-left: 10vw; */
-    transform: translate(95.4px, 40px);
+    margin-left: 7vw;
+    transform: translate(95.4px, 68px);
 }
 
 /* border효과 한쪽 left */
@@ -247,13 +246,15 @@ body {
 
 /*Container-bar end */
 section#board-container{
-	width:60vw;
-	height:72vh; 
-	margin:0 auto; 
-	text-align:center;
-	background-color: white;
-	border-radius: 10%;
-	padding: 3vw 5vh;
+	    width: 60vw;
+    height: 83%;
+    margin: 0 auto;
+    margin-top: 69px;
+    margin-left: 450px;
+    text-align: center;
+    background-color: white;
+    border-radius: 10%;
+    padding: 3vw 5vh;
 	}
 /*게시글 작성/상세보기 테이블*/
 table#tbl-board-view {
@@ -298,7 +299,7 @@ table#tbl-board-view td {
 	padding: 0.3vw;
 }
 
-.changebtn:hover{
+#changebtn:hover{
 	background-color: #00008B;	
 	border: 1px soild #00008B;
 	color:white;

@@ -34,7 +34,7 @@ body {
   display: flex;
   position: fixed;
   top: 10px;
-  margin-left: -15px;
+  margin-left: -117px;
 }
 
 
@@ -211,11 +211,11 @@ body {
 }
 
 .Container-bar ul li {
-  transform: translateX(171px);
-  background: #00008B;
-  display: block;
-  padding: 0.1vw 33.12vw;
-  margin-top: 3.8vw;
+ transform: translateX(68px);
+    background: #00008B;
+    display: block;
+    padding: 0px 33.12vw;
+    margin-top: 3.8vw;
 }
 
 .Container-bar .title {
@@ -237,12 +237,14 @@ body {
 /*Container-bar end */
 /*img start*/
 .img {
-  margin-left: 49vw;
+  margin-left: 42vw;
   transform: translateY(-14.5vw);
 }
 
 .img-h2 {
-  font-size: 60px;
+  font-size: 100px;
+    text-transform: uppercase;
+    margin-left: -13vw;
 }
 
 /*img end*/
@@ -496,69 +498,43 @@ body {
 }
 
 .btn {
-  margin-top: 36vw;
-  transform: translateX(-55vw);
+     margin-top: 36vw;
+    transform: translateX(-55vw);
 
 }
 
 .btn input {
-  width: 100px;
-  height: 59px;
-  border-radius: 10px;
-  white-space: none;
-  border: none;
-  font-weight: bold;
-  background-color: #d3d3d3;
-
+       position: absolute;
+    width: 32vw;
+    height: 59px;
+    border-radius: 15px;
+    white-space: none;
+    border: none;
+    font-weight: bold;
+    background-color: #666;
+    color: #fff;
+    font-size: 29px;
 }
 
-.btn input:hover {
-  background-color: #00008B;
-  color: #fff;
-  font-weight: bold;
-  border: none;
-}
 
-.btn1 {
-  margin-top: 36vw;
-  transform: translateX(-36vw);
-}
 
-.btn1 input {
-  width: 100px;
-  height: 50px;
-  border-radius: 10px;
-  border: none;
-  font-weight: bold;
-  background-color: #d3d3d3;
-}
-
-.btn1 input:hover {
-  background-color: #00008B;
-  color: #fff;
-  font-weight: bold;
-  border: none;
-}
 
 .btn2 {
-  transform: translateX(-22vw);
+      transform: translateX(-16vw);
+    margin-top: -6vw;
 }
 
 .btn2 input {
-  width: 100px;
-  height: 50px;
-  border-radius: 10px;
-  border: none;
-  font-weight: bold;
-  background-color: #d3d3d3;
+ width: 100px;
+    height: 50px;
+    border: none;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    font-size: 15px;
 }
 
-.btn2 input:hover {
-  background-color: #00008B;
-  color: #fff;
-  font-weight: bold;
-  border: none;
-}
+
 
 
 

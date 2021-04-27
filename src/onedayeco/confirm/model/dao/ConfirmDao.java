@@ -420,7 +420,7 @@ public class ConfirmDao {
 
 			pstmt=conn.prepareStatement(query);
 			pstmt.setInt(1,confirm.getA_id());
-			pstmt.setString(2,memberId);
+			pstmt.setInt(2,confirm.getA_id());
 			pstmt.setInt(3,confirm.getA_id());
 
 			result = pstmt.executeUpdate();
@@ -433,16 +433,14 @@ public class ConfirmDao {
 		return result;
 	}
 
-	public int updatePointCheck(Connection conn, int boardNo, String memberId) {
+	public int updatePointCheck(Connection conn, Confirm confirm) {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		String query = prop.getProperty("updatePointCheck");
-		
 		try {
 			pstmt=conn.prepareStatement(query);
 			pstmt.setString(1, ConfirmService.POINT_CHECK_Y);
-			pstmt.setInt(2, boardNo);
-			pstmt.setString(3, memberId);
+			pstmt.setInt(2, confirm.getA_id());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			throw new ConfirmException("인증게시판 포인트 체크 수정 오류",e);

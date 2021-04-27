@@ -180,7 +180,20 @@ public class ArticleService {
 		return result;
 	}
 
-
+	public int updateCount(int a_id) {
+		Connection conn = getConnection();
+		int result = 0;
+		try {
+			//1. board update 존재하는 게시물
+			result = articleDao.updateCount(conn,a_id);
+			//2. attachement insert 첨부파일이 없는 상황이라면
+			commit(conn);
+		}catch(Exception e) {
+			rollback(conn);
+			throw e;
+		}
+		return result;
+	}
 
 
 

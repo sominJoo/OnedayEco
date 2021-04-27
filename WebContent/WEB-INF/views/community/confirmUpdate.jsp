@@ -35,7 +35,7 @@
 <form name="boardUpdateFrm" action="<%=request.getContextPath() %>/community/confirmUpdate"
 enctype="multipart/form-data"
  method="post">
- 
+<section id="board-container">
 	<input type="hidden" name="no" value="<%=confirm.getA_id()%>"/>
 	<table id="tbl-board-view">
 

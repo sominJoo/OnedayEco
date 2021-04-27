@@ -412,7 +412,25 @@ public class ArticleDao {
 		}
 		return result;
 	}
-
+	
+	public int updateCount(Connection conn, int a_id) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String query = prop.getProperty("upCount");
+		
+		try {
+//			System.out.println("업데이트 보드");
+			pstmt=conn.prepareStatement(query);
+//			System.out.println("업데이트 보드 쿼리");
+			pstmt.setInt(1, a_id);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			throw new ArticleException("조회수 수정 오류",e);
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
 
 
 }

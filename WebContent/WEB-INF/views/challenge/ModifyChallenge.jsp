@@ -1,15 +1,17 @@
 <%@page import="challenge.model.vo.Challenge"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">  
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <%
-
 	Challenge challenge = (Challenge) request.getAttribute("challenge");
 %>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/Challenge.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/ModifyChallenge.css">
 
 <div id="modifychallengeform-container">
-<h2>챌린지 수정</h2>
+<h2 class="h2">챌린지 수정</h2>
 <form
 	action="<%= request.getContextPath() %>/challenge/ModifyChallenge"
 	name="modifyChallengeFrm"
@@ -41,7 +43,7 @@
 	</tr>
 	<tr>
 		<th colspan="2">
-			<input type="submit" value="수정">
+			<input class="submit" type="submit" value="수정">
 		</th>
 	</tr>
 	</table>

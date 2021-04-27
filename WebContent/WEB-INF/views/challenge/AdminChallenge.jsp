@@ -2,6 +2,10 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">   
 <%
 	List<Challenge> list = (List<Challenge>)request.getAttribute("list");
 	String nowChallenge = (String)request.getAttribute("nowChallenge");
@@ -11,24 +15,22 @@
 %>
 
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/Challenge.css">
-<script>
-<% if(msg != null) { %> 
-	alert("<%= msg %>"); 
-<% } %>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/AdminChallenge.css">
+
 </script>
 </head>
 <body>
 <div class="Container-bar">
 	<ul>
-		<li><a href="<%=request.getContextPath()%>/challenge/ShortChallenge">하루 챌린지</a></li>
+		<li class="left"><a href="<%=request.getContextPath()%>/challenge/ShortChallenge">하루 챌린지</a></li>
 		<li><a href="<%=request.getContextPath()%>/challenge/LongChallenge">기간 챌린지</a></li>
-		<li><a href="<%=request.getContextPath()%>/challenge/UpdateChallenge">수정</a>
+		<li class="Right"><a href="<%=request.getContextPath()%>/challenge/UpdateChallenge">수정</a>
 	</ul>
 </div>
+<div class="box">
 <div class="updateChallenge-container">
 	<!-- <input class="update" type="button" value="추가" onclick="crudChallenge()"/> -->
-	<input class="update" type="button" value="추가" onclick="location.href='<%= request.getContextPath() %>/challenge/ChallengeForm';"/>
+	<input class="update" id="add" type="button" value="추가" onclick="location.href='<%= request.getContextPath() %>/challenge/ChallengeForm';"/>
 	<% 
 		//관리자 일때만 버튼 클릭가능하게 수정.
 		//if(MemberService)
@@ -37,8 +39,8 @@
 			for(Challenge c : list){
 	%>	
 			<ul>
-				<li><%= c.getChallenge_id() %></li>
-				<li><%= c.getChallenge_name() %>
+				<%-- <li class="li-id"><%= c.getChallenge_id() %></li> --%>
+				<li class="li"><%= c.getChallenge_name() %>
 					<span class="hidden_id"><%= c.getChallenge_id() %></span>
 					<input class="update" type="button" value="삭제" onclick="adminChallenge()"/>
 					<!-- <input class="update" type="button" value="삭제" onclick="deleteChallenge()"/> -->
@@ -59,16 +61,31 @@
 		if(list != null && !list.isEmpty()) { 
 			for(Challenge c : list){
 	%>
-			<div class="flip"><%= c.getChallenge_name() %></div>
+<%-- 			<div class="flip"><%= c.getChallenge_name() %></div>
 			<div class="panel">
 				<p><%=c.getChallenge_info() %></p>
-				<p><input type="submit" value="도전"></p>
+				<p><input class="submit" type="submit" value="도전"></p>
+			</div> --%>
+			
+			<div class="flip">
+				<%= c.getChallenge_name() %>
+				<span class="hidden_id"><%= c.getChallenge_id() %></span>
+				<input class="update" type="button" value="삭제" onclick="adminChallenge()"/>
+				 | 
+				<span class="hidden_id"><%= c.getChallenge_id() %></span>
+				<input class="update" type="button" value="수정" onclick="adminChallenge()"/>
+			</div>
+			<div class="panel">
+				<p>
+					<%=c.getChallenge_info() %>
+				</p>
 			</div>
 	<% } } else { %>
 		<p>null</p>
 	<% }}%>
 	
 	<div id='pageBar'><%= request.getAttribute("pageBar") %></div>
+	</div>
 <!-- 보이지 않는 form -->
 <!-- 안쓸듯 -->
 <form

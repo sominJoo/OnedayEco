@@ -12,6 +12,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.FileRenamePolicy;
 import common.BoardFileRenamePolicy;
 import community.MemberBoard.model.service.MemberboardService;
+import community.MemberBoard.model.vo.Challenge;
 import community.MemberBoard.model.vo.Memberboard;
 import community.MemberBoard.model.vo.MemberboardAttachment;
 
@@ -24,7 +25,7 @@ public class MemberboardEnrollServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		try {
-		String saveDirectory = getServletContext().getRealPath("/upload/Memberboard");
+		String saveDirectory = getServletContext().getRealPath("/upload/memberboard");
 		int maxPostSize = 10 * 1024 * 1024;
 		String encoding = "utf-8";
 		
@@ -41,7 +42,8 @@ public class MemberboardEnrollServlet extends HttpServlet {
 		int challengeId = Integer.parseInt(multipartRequest.getParameter("challenge_id"));
 		String title = memberboardService.selectChallengeTitle(challengeId);
 		String memberId = multipartRequest.getParameter("writer");
-		int sTeamCount = Integer.parseInt(multipartRequest.getParameter("s_team_count"));
+		int sTeamCount = "".equals(multipartRequest.getParameter("s_team_count")) ? 10 : Integer.parseInt(multipartRequest.getParameter("s_team_count"));
+		
 		String aContent = multipartRequest.getParameter("content");	
 		
 		String originalFilename = multipartRequest.getOriginalFileName("upFile");

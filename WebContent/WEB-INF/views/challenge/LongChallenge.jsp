@@ -1,3 +1,4 @@
+<%@page import="member.model.service.MemberService"%>
 <%@page import="challenge.model.vo.Challenge"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -5,35 +6,44 @@
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html>
-
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/Challenge.css">
+    <%-- <link rel="stylesheet" href="<%=request.getContextPath()%>/css/LongChallenge.css"> --%>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/LongChallenge.css">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <%@ include file ="/WEB-INF/views/common/header.jsp" %>
-<%@ include file ="/WEB-INF/views/common/containerBar.jsp"%>
+
 <%
 	List<Challenge> list = (List<Challenge>)request.getAttribute("list");
 
 %>
 <script>
-<% if(msg != null) { %> 
+<%-- <% if(msg != null) { %> 
 	alert("<%= msg %>"); 
-<% } %>
+<% } %> --%>
 </script>
 </head>
 <body>
 <div class="Container-bar">
 	<ul>
-		<li><a href="<%=request.getContextPath()%>/challenge/ShortChallenge">하루 챌린지</a></li>
+		<li class="left"><a href="<%=request.getContextPath()%>/challenge/ShortChallenge">하루 챌린지</a></li>
 		<li><a href="<%=request.getContextPath()%>/challenge/LongChallenge">기간 챌린지</a></li>
-		<li><a href="<%=request.getContextPath()%>/challenge/UpdateChallenge">수정</a>
+		<%-- 관리자 로그인시에만 관리자 메뉴 노출 --%>
+		<% if(loginMember != null && MemberService.ADMIN_ROLE.equals(loginMember.getMemberRole())) {%>
+		<li class="Right"><a href="<%=request.getContextPath()%>/challenge/UpdateChallenge">수정</a>
+		<% } %>
+	
 	</ul>
 </div>
+<div class="box">
 <div id="longchallenge-container">
-	
+<form
+	action="<%= request.getContextPath() %>/challenge/JoinChallenge"
+	name="joinChallengeFrm"
+	method="POST">
+	<input type="hidden" name="c_id" value=""/>	
 	<% 
 		if(list != null && !list.isEmpty()) { 
 			for(Challenge c : list){
@@ -44,7 +54,10 @@
 				<!-- <p><input type="submit" value="도전"></p> -->
 				<p>
 					<span class="hidden_id"><%= c.getChallenge_id() %></span>
+					<% if(loginMember != null) { %>
 					<input class="join" type="button" value="도전" onclick="joinChallenge()"/>
+					<input type="hidden" name="member_id" value="<%= loginMember.getMemberId()%>"/>
+					<% } %>
 				</p>
 			</div>
 	<% 
@@ -57,7 +70,7 @@
 	
 	
 	<div id='pageBar'><%= request.getAttribute("pageBar") %></div>
-
+</div>
 
 <script> 
 $(document).ready(function() {
@@ -66,15 +79,6 @@ $(document).ready(function() {
 	});
 });
 </script>
-
-<!-- 보이지 않는 form -->
-<form
-	action="<%= request.getContextPath() %>/challenge/JoinChallenge"
-	name="joinChallengeFrm"
-	method="POST">
-	<input type="hidden" name="c_id" value=""/>
-	<input type="hidden" name="member_id" value="<%= loginMember.getMemberId()%>"/>
-</form>
 
 <script>
 function joinChallenge(){

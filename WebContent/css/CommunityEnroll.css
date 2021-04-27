@@ -34,7 +34,7 @@ body {
   display: flex;
   position: fixed;
   top: 10px;
-  margin-left:-52px;
+  margin-left:-153px;
 }
 
 
@@ -257,7 +257,8 @@ body {
 section#board-container{
 	width: 60vw; 
 	height: 75vh;
-	margin-left: 22vw;
+	margin-left: 17vw;
+	margin-top:5vw;
 	text-align:center;
 	background-color: #ffffff;
 	padding: 3vw 5vh;
@@ -311,3 +312,7 @@ textarea{
 	border: none;
 	resize:none;	
 }
+#loginMember-Nickname{
+	font-size: 25px;
+}
+

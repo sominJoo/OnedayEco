@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <title>커뮤니티게시판 상세보기</title>
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/css/Community.css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/css/CommunityBoardView.css">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
@@ -47,14 +47,17 @@ Article article= (Article)request.getAttribute("article");
 			<td><%=article.getArticle_reg_date() %></td>
 		</tr>
 		<tr>
-			<th>좋아요</th>
-			<td><img src="<%=request.getContextPath() %>/image/heart.png" width="16px" /><%=article.getArticle_like() %></td>
 			<th>조회수</th>
 			<td><%=article.getArticle_read_count() %></td>
 		</tr>
 		<tr>
 			<th>내 용</th>
-			<td colspan="4"><%=article.getArticle_content() %></td>
+			<td colspan="4">
+			<br />
+			<% 	if(article.getAttach() != null){ %>
+			<img src="<%=request.getContextPath() %>/upload/board/<%=article.getAttach().getRenamed_filename() %>" alt=""  style="width:200px"/>
+			<% } %> <br />
+			<%=article.getArticle_content() %></td>
 		</tr>
 		<tr>
 				<th>첨부파일</th>
@@ -62,7 +65,7 @@ Article article= (Article)request.getAttribute("article");
 				<!-- 아래 구문이 없다면 nullpointexception떨어짐  -->
 				<% 	if(article.getAttach() != null){ %>
 			<!-- 	첨부파일이 있을경우만, 이미지와 함께 original파일명 표시 -->
-				<img alt="첨부파일" src="<%=request.getContextPath() %>/images/file.png" width=16px>
+				<img src="<%=request.getContextPath() %>/image/file-storage.png" width=16px>
 				<a href="<%=request.getContextPath()%>/community/fileDownload?no=<%= article.getAttach().getArticle_id() %>"><%= article.getAttach().getOriginal_filename()%></a>
 				
 				<% } %>
@@ -78,9 +81,9 @@ Article article= (Article)request.getAttribute("article");
 		</tr>
 		<%} %> 
 	</table>
-	
+
 	<hr style="margin-top:30px;" />	
-	
+	<br />
 	<div class="comment-container">
         <div class="comment-editor">
             <form action="<%=request.getContextPath()%>/community/communityBoardCommentInsert" method="post" name="boardCommentFrm">

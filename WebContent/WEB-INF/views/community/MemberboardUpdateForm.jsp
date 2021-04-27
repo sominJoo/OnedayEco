@@ -7,10 +7,9 @@
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/MemberboardForm.css" />
 <script src="<%=request.getContextPath()%>/js/jquery-3.6.0.js"></script>
-<% 
+<%
 	Memberboard memberboard = (Memberboard)request.getAttribute("memberboard");
 	List<Memberboard> list = (List<Memberboard>)request.getAttribute("list");
-	
 %>
 <script>
 $(function(){
@@ -38,11 +37,11 @@ function boardValidate(){
 <section id="board-container">
 <form
 	name="memberboardEnrollFrm"
-	action="<%=request.getContextPath() %>/community/memberboardUpdate" 
+	action="<%=request.getContextPath()%>/community/memberboardUpdate" 
 	method="post"
 	enctype="multipart/form-data"
 	>
-	<input type="hidden" name="a_id" value="<%= memberboard.getaId() %>"/>
+	<input type="hidden" name="a_id" value="<%=memberboard.getaId()%>"/>
 	<h2>팀원모집 게시글 수정</h2>
 	<table id="tbl-board-view">
 		<tr>
@@ -52,9 +51,9 @@ function boardValidate(){
 		<td>
 		
 		  <select name="challenge_id" class="td td2" required>
-		<% 
-		for(Memberboard mb : list){ 
-		if(mb.getChallenge().getChallengeName().equals(memberboard.getChallenge().getChallengeName())){
+		<%
+			for(Memberboard mb : list){ 
+				if(mb.getChallenge().getChallengeName().equals(memberboard.getChallenge().getChallengeName())){
 		%>
 			<option value="<%= mb.getChallenge().getChallengeId() %>" selected><%= mb.getChallenge().getChallengeName() %></option>
 		<%

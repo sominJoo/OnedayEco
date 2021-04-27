@@ -20,10 +20,6 @@
 
 
 <%@ include file ="/WEB-INF/views/common/header.jsp" %>
-
-  <% if(loginMember != null) %>
-
-	
 <%@include file ="/WEB-INF/views/common/containerBar.jsp" %>
 
 <section id="board-container">
@@ -42,9 +38,8 @@
 			<th>제목</th>
 			<th>작성자</th>
 			<th>내용</th>
-			<th>첨부파일</th>
-			<th> <img src="<%= request.getContextPath()%>/image/heart.png" width="16px"/> </th>
-			<th>조회수</th>
+			<th  style="text-align:'center'">첨부파일</th>
+			<th  style="text-align:'center'">조회수</th>
 		</tr>
 	<%
 		if(list != null && !list.isEmpty()) {%>
@@ -62,7 +57,6 @@
 						<img src="<%= request.getContextPath()%>/image/file-storage.png" width="16px"/>
 						<%} %>
 					</td>
-					<td><%=a.getArticle_like()%></td>
 					<td><%=a.getArticle_read_count()%></td>
 				</tr> 
 				</div>

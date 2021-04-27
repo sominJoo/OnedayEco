@@ -33,7 +33,7 @@ body {
   display: flex;
   position: fixed;
   top: 10px;
-  margin-left: -4.7vw;
+  margin-left:-90px;
 }
 
 .wrapper .top_navbar .slide-menu {
@@ -190,7 +190,7 @@ body {
 }
 
 .slider {
-  margin-top: 3.6vw;
+  margin-top: 0.6vw;
     width: 1720px;
     height: 310px;
     border-radius: 10px;
@@ -321,11 +321,12 @@ body {
   background-color: white;
     width: 36vw;
     height: 22vw;
-    margin-left: 8vw;
-    margin-top: -19vw;
-    transform: translateY(-1vw);
+    transform: translateY(256px);
     border-radius: 50px;
     text-align: center;
+    margin-left: 12vw;
+    margin-top: -19vw;
+    transform: translateY(-16px);
 }
 .Box1 h1{
 	text-transform: uppercase;
@@ -342,10 +343,12 @@ body {
 
 
 .Box1-h2 {
-  transform: translateX(-4vw);
     text-transform: uppercase;
     padding: 0.5vw;
     font-size: 50px;
+}
+#loginMember-Nickname{
+	font-size: 25px;
 }
 
 /*인기게시물 end*/

@@ -1,0 +1,329 @@
+@CHARSET "UTF-8";
+/*게시판*/
+section#board-container {
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    transform: translate(337px, 49px);
+    width: 810px;
+    float: left;
+}
+/*페이지바*/
+div#pageBar{margin-top:10px; text-align:center; background-color:rgba(0, 188, 212, 0.3); }
+div#pageBar span.cPage{color: #0066ff; margin-right: 5px;}
+div#pageBar a{margin-right: 5px;}
+
+/*게시글 작성/상세보기 테이블*/
+div.td-container1 {
+    width: 115px;
+    height: 52px;
+    background-color: #cde2e5;
+    border-radius: 7px;
+    line-height: 52px;
+    font-size: 17px;
+    transform: translateX(20px);
+}
+div.td1-2 {
+    height: 328px;
+    line-height: 328px;
+}
+div.td1-3 {
+    height: 120px;
+    line-height: 120px;
+}
+table#tbl-board-view {
+	width:804px; 
+	margin:auto; 
+	border:1px solid black; 
+	border-collapse:collapse; 
+}
+table#tbl-board-view th {
+    width: 145px;
+    border: 7px solid rgb(225 236 242);
+    padding: 2px 0;
+    text-align: center;
+} 
+table#tbl-board-view td {
+    border: 7px solid rgb(225 236 242);
+    padding: 4px;
+    text-align: left;
+    color: gray;
+    background-color : #fafafa;
+}
+.menu .btn{
+    color: #000000;
+    background-color: rgb(182 214 219);
+    border: none;
+    border-bottom: 1.3px solid rgb(155 182 195);
+    font-size: 17px;
+    border-radius: 20px;
+    font-weight: bolder;
+    width: 770px;
+    height: 43px;
+    margin: 5px 9.5px;
+}
+
+table#tbl-board-view p{
+	margin-bottom : 10px;
+}
+
+#img_container {
+	text-align : center;
+}
+
+#example_img {
+    width: 305px;
+    height: 253px;
+}
+
+.td {
+    width: 210px;
+    height: 35px;
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 10px;
+    font-size: 15px;
+    text-align: center;
+}
+
+td .td2 {
+	transform: translateX(17px);
+}
+td .td2-1 {
+    transform: translate(15px, 2px);
+}
+[name=a-content] {
+    width: 622px;
+    height: 106px;
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 10px 18px;
+}
+.file_container {
+	text-align : center;
+	margin : 1px auto 15px;
+	transform: translate(-20px, 3px);
+}
+
+input:focus {
+	outline : none;
+	border: 1.3px solid rgb(146, 171, 205);
+}
+
+textarea:focus {
+	outline : none;
+	border: 1.3px solid rgb(146, 171, 205);
+}
+select:focus {
+	outline : none;
+	border: 1.3px solid rgb(146, 171, 205);
+}
+.btn:hover, .btn2:hover {
+	cursor : pointer;
+ 	box-shadow:3px 3px 5px rgb(189 214 226);
+} 
+
+.menu .btn2 {
+color: #000000;
+    background-color: rgb(182 214 219);
+    border: none;
+    border-bottom: 1.3px solid rgb(155 182 195);
+    font-size: 17px;
+    border-radius: 20px;
+    font-weight: bolder;
+    width: 239px;
+    height: 43px;
+    margin: 5px;
+}
+
+h2 {
+	font-size: 30px;
+    font-weight: 400;
+    color: #accfe0;
+    text-shadow: -1px 0 #607d8b, 0 1px #607d8b, 1px 0 #607d8b, 0 -1px #607d8b;
+    transform: translate(63px);
+}
+
+th.column {
+    transform: translateX(-12px);
+}
+
+div.td-container2 {
+    width: 100%;
+    height: 52px;
+    background-color: #cde2e5;
+    border-radius: 7px;
+    line-height: 52px;
+    font-size: 17px;
+}
+
+.comment-wrapper {
+    width: 381px;
+    background-color: #ffffffb3;
+    transform: translate(337px, 95px);
+    height: 591px;
+    border-radius: 17px;
+    display: inline-block;
+    /* margin: 40px; */
+    padding: 46px 0;
+    overflow-y: auto;
+}
+
+button,
+button::after {
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+button {
+    background: none;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    color: #ffffff;
+    display: block;
+    font-size: 19px;
+    font-weight: bold;
+    margin: -10px auto;
+    padding: 18px 38px;
+    position: relative;
+    text-transform: uppercase;
+    background-color: #607d8b75;
+    text-align: center;
+    transform: translate(2px, 16px);
+}
+
+
+button::before,
+button::after {
+    background: #cde2e5;
+    content: '';
+    position: absolute;
+    z-index: -1;
+}
+
+button:hover {
+  color: #3c5059;
+}
+
+.btn::after {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 0;
+}
+
+.btn:hover:after {
+  width: 100%;
+}
+
+.comment-wrapper #like {
+    background-color: #f4f4f4;
+    text-align: center;
+    width: 334px;
+    margin: -15px 15px 17px;
+    font-size: 17px;
+    height: 44px;
+    line-height: 44px;
+    border-radius: 43px;
+}
+
+.comment-enroll-btn {
+    background-color: #f4f4f4;
+    border: 1px solid #b3bfc5;
+    width: 46px;
+    height: 74px;
+    border-radius: 12px;
+    margin: 11px 11px;
+    float: right;
+    transform: translateX(-3px);
+    font-size: 14px;
+}
+
+[name=comment] {
+    border: 1px solid #dfdfdf;
+    border-radius: 10px;
+    margin: 10px -2px 9px 12px;
+    padding: 10px;
+}
+
+input[type=checkbox] {
+    display:none;
+}
+
+input[type=checkbox] + label {
+    background-image: url(../image/커뮤니티/like1.png);
+    background-size: 22px 21px;
+    display: inline-block;
+    cursor: pointer;
+    line-height: 21px;
+    padding-left: 30px;
+    background-repeat: no-repeat;
+}
+
+input[type=checkbox]:checked + label {
+    background-image: url('../image/커뮤니티/like2.png');
+}
+
+div.comment-div {
+	background-color: #edf1f3;
+    width: 254px;
+    margin-left: 12px;
+    border-radius: 8px;
+    padding: 7px 12px 13px;
+    font-size: smaller;
+    height: 79px;
+    overflow-y: auto;
+    margin-top: 6px;
+}
+sub {
+	color : grey;
+}
+
+button.comment-btn {
+    width: 84.5px;
+    font-size: 13.5px;
+    padding: 8px;
+    float: left;
+    margin: -1px 0px;
+    border-radius: 16px;
+    top: -13.5px;
+    background-color: #bcc8ce;
+}
+
+button.btn-insert-reply {
+    color: black;
+    width: 43px;
+    padding: 0px;
+    height: 56px;
+}
+.btn-insert-reply:hover {
+	color : #2d4a42;
+}
+
+div.comment-div2 {
+    background-color: #f3f3f3;
+    width: 254px;
+    margin-left: 12px;
+    border-radius: 8px;
+    padding: 7px 9px 13px;
+    font-size: smaller;
+    height: 79px;
+    overflow-y: auto;
+    margin-top: 6px;
+    /* padding: 10px; */
+    padding-left: 23px;
+    color: #3c3b3b;
+}
+
+button.comment-btn2 {
+    width: 84.5px;
+    font-size: 13.5px;
+    padding: 25.3px;
+    float: left;
+    margin: -1px 0px;
+    border-radius: 16px;
+    top: -13.5px;
+	background-color: #d4d4d4;
+}

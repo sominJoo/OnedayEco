@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import challenge.model.service.ChallengeServcie;
+import challenge.model.servcie.ChallengeServcie;
 import challenge.model.vo.Challenge;
 
 /**

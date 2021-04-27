@@ -34,6 +34,7 @@ body {
   position: fixed;
   top: 10px;
 
+
 }
 
 .wrapper .top_navbar .slide-menu {
@@ -102,7 +103,7 @@ body {
 .wrapper .sidebar {
   position: fixed;
   top: 79px;
-  left: 20px; 
+  left: 10px;
   background: #79CF9F;
   width: 190px;
   height: calc(100% - 80px);
@@ -158,64 +159,68 @@ body {
 }
 
 .wrapper .main_container {
-  width: (100% - 200px);
-  transform: translateY(30vh);
-  margin-left: 200px;
-  padding: 15vw;
-  transition: all 0.3s ease;
-  border-left: 66vw;
+          transform: translateY(187vh);
+    margin-left: 200px;
+    padding: 15vw;
+    transition: all 0.3s ease;
+    border-left: 66vw;
 }
-
-.main_container-h1 {
-  color: #00008B;
-  font-size: 50px;
-}
-
-.main_container-hr {
-  border: 0;
-  height: 3px;
-  background: #ccc;
-
-}
-
-.wrapper .main_container .text {
-  text-align: center;
-  font-size: 25px;
-  font-family: 'Nanum Gothic', sans-serif;
-}
-
-.wrapper .main_container .item {
-  background: #fff;
-  margin-bottom: 10px;
-  padding: 15px;
-  font-size: 14px;
-  line-height: 22px;
-}
-
-.wrapper.collapse .sidebar {
-  width: 70px;
-}
-
-.wrapper.collapse .sidebar ul li a {
-  text-align: center;
-}
-
-.wrapper.collapse .sidebar ul li a span.icon {
-  margin: 0;
-}
-
-.wrapper.collapse .sidebar ul li a span.title {
-  display: none;
-}
-
-.wrapper.collapse .main_container {
-  width: (100% - 70px);
-  margin-left: 70px;
+.main_container-h1{
+	font-size: 50px;
 }
 
 /* 기사 내부 */
-.main_container .img {
-  text-align: center;
+.main_container .img  img{
+	width: 700px;
+	    border-radius: 10px;
+}
+.img-h1{
+	   float: right;
+    margin-top: -3.5vw;
+    font-size: 50px;
+    color: #0000ffad;
+}
+.img1 img{
+	width: 700px;
+	    border-radius: 10px;
+}
+.text-div{
+    margin-top: -4vw;
+    font-size: 25px;
+}
+.text-div2{
+margin-top: 4vw;
+}
+.text-div2 img{
+	border-radius: 10px;
+}
+.text-div3 img{
+	      width: 700px;
+    border-radius: 10px;
+}
+.text-div3-text{
+    margin-left: 31vw;
+    font-size: 25px;
+}
+.text-div4 img{
+	    width: 700px;
+/*     transform: translateY(-2vw); */
+}
+.text-div4-text{
+	    margin-left: 31vw;
+    margin-top: 3vw;
+    font-size: 25px;
+}
+.text-div2-text{
+	      margin-left: 34vw;
+    font-size: 20px;
+}
+.mark{
+	background-color: #0000ff38;
+    border-radius: 5px;
+}
+#loginMember-Nickname{
+	font-size: 25px;
 }
 
 /*메인컨테이너 벗어나면 내용 안보이게  */

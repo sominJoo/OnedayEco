@@ -46,6 +46,7 @@ public class MemberboardViewServlet extends HttpServlet {
 		memberboard.setaReadCount(memberboard.getaReadCount());
 		memberboard.setsTeamCount(memberboard.getsTeamCount());
 		
+		
 		//3. jsp forwarding
 		request.setAttribute("memberboard", memberboard);
 		request.getRequestDispatcher("/WEB-INF/views/community/MemberboardView.jsp")
@@ -58,5 +59,4 @@ public class MemberboardViewServlet extends HttpServlet {
 			throw e;
 		}
 	}
-
 }

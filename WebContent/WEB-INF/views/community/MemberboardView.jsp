@@ -6,9 +6,8 @@
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/MemberboardForm.css" />
 <script src="<%=request.getContextPath()%>/js/jquery-3.6.0.js"></script>
-<% 
-Memberboard memberboard = (Memberboard)request.getAttribute("memberboard");
-
+<%
+	Memberboard memberboard = (Memberboard)request.getAttribute("memberboard");
 
 boolean editable =
 		loginMember != null &&
@@ -98,7 +97,7 @@ boolean editable =
 </form>
 <script>
 function viewMemberboardList(){
-	location.href = "<%=request.getContextPath() %>/Community/Memberboard";
+	location.href = "<%=request.getContextPath() %>/community/memberboardList";
 }
 function updateMemberboard(){
 	location.href = "<%=request.getContextPath() %>/community/memberboardUpdate?no=<%= memberboard.getaId()%>";

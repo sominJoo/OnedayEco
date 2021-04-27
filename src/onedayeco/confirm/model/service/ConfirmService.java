@@ -197,11 +197,11 @@ public class ConfirmService {
 		return result;
 	}
 
-	public int updatePointCheck(int boardNo, String memberId) {
+	public int updatePointCheck(Confirm confirm, String memberId) {
 		Connection conn = getConnection();
 		int result = 0;
 		try {
-			result = confirmDao.updatePointCheck(conn,boardNo, memberId);
+			result = confirmDao.updatePointCheck(conn,confirm);
 			commit(conn);
 		}catch(Exception e) {
 			rollback(conn);

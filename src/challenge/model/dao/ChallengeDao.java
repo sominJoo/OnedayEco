@@ -239,6 +239,35 @@ public class ChallengeDao {
 		}
 		return result;
 	}
+
+	public List<Challenge> selectShortAll(Connection conn) {
+		List<Challenge> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectShortAll");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				Challenge challenge = new Challenge();
+				challenge.setChallenge_id(rset.getInt("challenge_id"));
+				challenge.setChallenge_term_type(rset.getString("challenge_term_type"));
+				challenge.setChallenge_level(rset.getInt("challenge_level"));
+				challenge.setChallenge_name(rset.getString("challenge_name"));
+				challenge.setChallenge_info(rset.getString("challenge_info"));
+				challenge.setChallenge_point(rset.getInt("challenge_point"));
+				challenge.setChallenge_term(rset.getInt("challenge_term"));
+				list.add(challenge);
+			}
+		} catch (SQLException e) {
+			//e.printStackTrace();
+			throw new ChallengeException("챌린지 조회 오류", e);
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
 	
 
 }

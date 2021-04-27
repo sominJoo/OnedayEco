@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import challenge.model.exception.ChallengeException;
-import challenge.model.service.ChallengeServcie;
+import challenge.model.servcie.ChallengeServcie;
 import challenge.model.vo.Challenge;
 import common.MvcUtils;
 

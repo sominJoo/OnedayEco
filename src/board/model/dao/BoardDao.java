@@ -13,6 +13,7 @@ import java.util.Properties;
 import board.model.exception.BoardException;
 import board.model.vo.Attachment;
 import board.model.vo.Board;
+import onedayeco.article.model.vo.Article;
 
 public class BoardDao {
 	private Properties prop = new Properties();
@@ -50,8 +51,8 @@ public class BoardDao {
 		}
 		return totalContents;
 	}
-	public Board selectOne(Connection conn, int no) {
-		Board board = null;
+	public Article selectOne(Connection conn, int no) {
+		Article board = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = prop.getProperty("selectOne");
@@ -63,15 +64,16 @@ public class BoardDao {
 			rs = pstmt.executeQuery();
 			System.out.println(2222);
 			while(rs.next()) {
-				board = new Board();
-				board.setAid(rs.getInt("A_ID"));
-				board.setMemberId(rs.getString("MEMBER_ID"));
-				board.setAtype(rs.getString("A_TYPE"));
-				board.setTitle(rs.getString("A_TITLE"));
-				board.setContent(rs.getString("A_CONTENT"));
-				board.setRegDate(rs.getDate("A_REG_DATE"));
-				board.setRedCount(rs.getInt("A_READ_COUNT"));
-				board.setLike(rs.getInt("A_LIKE"));
+				board = new Article();
+				board.setArticle_id(rs.getInt("A_ID"));
+				System.out.println(3333);
+				board.setUser_id(rs.getString("MEMBER_ID"));
+				board.setArticle_type(rs.getString("A_TYPE"));
+				board.setArticle_title(rs.getString("A_TITLE"));
+				board.setArticle_content(rs.getString("A_CONTENT"));
+				board.setArticle_reg_date(rs.getDate("A_REG_DATE"));
+				board.setArticle_read_count(rs.getInt("A_READ_COUNT"));
+				board.setArticle_like(rs.getInt("A_LIKE"));
 			}
 		} catch (SQLException e) {
 			throw new BoardException("날짜 최신순 등록오류" ,e);
@@ -111,5 +113,51 @@ public class BoardDao {
 			close(pstmt);
 		}
 		return board;
+	}
+	public int selectBoardNoC(Connection conn) {
+		int boardNoC = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectBoardNoC");
+		System.out.println(sql);
+		try {
+			pstmt = conn.prepareStatement(sql);
+			System.out.println(pstmt);
+			rset = pstmt.executeQuery();
+			System.out.println(rset);
+			if(rset.next()) {
+				boardNoC = rset.getInt("a_id");
+				System.out.println("BoardNoC"+boardNoC);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return boardNoC;
+	}
+	public int selectBoardNoH(Connection conn) {
+		int boardNoH = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectBoardNoH");
+		System.out.println(sql);
+		try {
+			pstmt = conn.prepareStatement(sql);
+			System.out.println(pstmt);
+			rset = pstmt.executeQuery();
+			System.out.println(rset);
+			if(rset.next()) {
+				boardNoH = rset.getInt("a_id");
+				System.out.println("BoardNoH"+boardNoH);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return boardNoH;
 	}
 }

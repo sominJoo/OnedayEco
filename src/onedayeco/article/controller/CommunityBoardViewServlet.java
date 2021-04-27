@@ -37,8 +37,10 @@ public class CommunityBoardViewServlet extends HttpServlet {
 			}
 			System.out.println("ArticleViewServlet@article_no = "+article_id);
 		
-			//2.업무로직 : article객체 조회(첨부파일 조회)
-			Article article = articleService.selectOne(article_id); 
+			//2.업무로직 : article객체 조회(첨부파일 조회)/조회수 증가
+			Article article = articleService.selectOne(article_id);
+			article.setArticle_read_count(articleService.updateCount(article_id));
+			
 			if(article == null) {
 				throw new ArticleException("해당 게시글이 존재하지 않습니다.");
 			}

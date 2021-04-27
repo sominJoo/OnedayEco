@@ -17,7 +17,7 @@ import onedayeco.article.model.vo.ArticleAttachment;
 /**
  * Servlet implementation class FileDownladServlet
  */
-@WebServlet("/communtity/fileDownload")
+@WebServlet("/community/fileDownload")
 public class FileDownladServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private ArticleService articleService = new ArticleService();   

@@ -33,7 +33,7 @@ body {
   display: flex;
   position: fixed;
   top: 10px;
-  margin-left:-52px;
+  margin-left: -148px;
 }
 
 
@@ -197,7 +197,7 @@ body {
 /*Container-bar start */
 .Container-bar {
     /* margin-left: 10vw; */
-    transform: translate(95.4px, 40px);
+    transform: translate(95.4px, 45px);
 }
 
 /* border효과 한쪽 left */
@@ -245,16 +245,17 @@ body {
 }
 
 /*Container-bar end */
-/*게시판*/
+/* 게시판 */
 section#board-container{
-	width:60vw;
-	height:75vh; 
-	margin:0 auto; 
-	text-align:center;
-	background-color: white;
-	border-radius: 10%;
-	padding: 3vw 5vh;
-	margin-left: 400px;
+    width: 60vw;
+    height: 75vh;
+    margin: 0 auto;
+    text-align: center;
+    background-color: white;
+    border-radius: 10%;
+    padding: 3vw 5vh;
+    margin-left: 350px;
+    margin-top: 5vw;
 	}
 table#tbl-board{
 	width:100%; 

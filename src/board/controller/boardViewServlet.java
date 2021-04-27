@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import board.model.exception.BoardException;
 import board.model.service.BoardService;
 import board.model.vo.Board;
+import common.MvcUtils;
 import common.onedayecoUtils;
+import onedayeco.article.model.vo.Article;
 
 /**
  * Servlet implementation class boardViewServlet
@@ -24,31 +26,26 @@ public class boardViewServlet extends HttpServlet {
 	private BoardService boardService = new BoardService();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			//1. 사용자 입력값 : no
-			int	no  = 0; 
+	
+			 
 			try {
-				no = Integer.parseInt(request.getParameter("no"));
-			} catch(NumberFormatException e) {
-				throw new BoardException("유효한 게시글 번호가 아닙니다.", e);
-			}
-			System.out.println("boardViewServlet@article_no = "+no);
 			//2. 업무로직 : board객체 조회(첨부파일 조회)
-			Board board = boardService.selectOne(no);
-			if(board == null) {
+			int no = boardService.selectBoardNoC();
+			Article article = boardService.selectOne(no);
+			if(article == null) {
 				throw new BoardException("해당 게시글이 존재하지 않습니다.");
 			}
 			
 			//xss공격방지
-			board.setTitle(onedayecoUtils.escapeHtml(board.getTitle()));
-			board.setContent(onedayecoUtils.escapeHtml(board.getContent()));
+			article.setArticle_title(MvcUtils.escapeHtml(article.getArticle_title()));
+			article.setArticle_content(MvcUtils.escapeHtml(article.getArticle_content()));
 			
 			// \n개행문자를 <br/>태그로 변경
-			board.setContent(onedayecoUtils.convertLindeFeedToBr(board.getContent()));
+			article.setArticle_content(MvcUtils.convertLindeFeedToBr(article.getArticle_content()));
 			
 			//3. jsp forwarding
-			request.setAttribute("board", board);
-			request.getRequestDispatcher("/WEB-INF/views/board/boardView.jsp")
+			request.setAttribute("article", article);
+			request.getRequestDispatcher("/WEB-INF/views/community/communityBoardView.jsp")
 				   .forward(request, response);
 		} catch(Exception e) {
 			//로깅

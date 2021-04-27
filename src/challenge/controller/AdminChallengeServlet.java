@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import challenge.model.service.ChallengeServcie;
+import challenge.model.servcie.ChallengeServcie;
 import challenge.model.vo.Challenge;
 import common.BoardFileRenamePolicy;
 
@@ -21,18 +21,18 @@ public class AdminChallengeServlet extends HttpServlet {
 	private ChallengeServcie challengeService = new ChallengeServcie();
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		int c_id = Integer.parseInt(request.getParameter("c_id"));
+
 		int c_id = 0;
 		
 		if(request.getParameter("c_id") != null) {
 			c_id = Integer.parseInt(request.getParameter("c_id"));
 		}		
-		System.out.println("c_id : " + c_id);
+//		System.out.println("c_id : " + c_id);
 		
 		String crud = request.getParameter("crud");
-		System.out.println("crud : " + crud);
+//		System.out.println("crud : " + crud);
 		
-		System.out.println("AdminChallengeServlet : " + ShortChallengeServlet.nowChallenge);
+//		System.out.println("AdminChallengeServlet : " + ShortChallengeServlet.nowChallenge);
 		
 		if(crud.equals("추가")) {
 			//1. 사용자 입력 값 처리
@@ -72,6 +72,7 @@ public class AdminChallengeServlet extends HttpServlet {
 			int result = challengeService.deleteChallenge(c_id);
 			String msg = result > 0 ? "챌린지 삭제 성공" : "챌린지 삭제 실패";
 
+			System.out.println(msg);
 			request.getSession().setAttribute("msg", msg);
 			response.sendRedirect(request.getContextPath() + "/challenge/UpdateChallenge");
 

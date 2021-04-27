@@ -34,7 +34,7 @@ body {
   display: flex;
   position: fixed;
   top: 10px;
-    margin-left: -153px;
+    margin-left:-148px;
 }
 
 
@@ -244,6 +244,10 @@ body {
   color: #fff;
   white-space: nowrap;
 }
+#type{
+	float:left;
+}
+
 /*게시글 작성/상세보기 테이블*/
 section#board-container{
     width: 60vw;
@@ -306,8 +310,4 @@ textarea{
 }
 #loginMember-Nickname{
 	font-size: 25px;
-}
-.selector{
-	font-size : 15px;
-	margin: 20px;
 }

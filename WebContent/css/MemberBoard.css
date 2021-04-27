@@ -61,17 +61,18 @@
 
 .page-bar {
     font-size: 19px;
-    color: #f7ffff;
+    color: #101f26;
     background-color: #9aadb5;
     border-radius: 27px;
     height: 40px;
-    line-height: 39px;
+    line-height: 38.5px;
     width: 1075px;
     text-align: center;
     word-spacing: 59px;
     letter-spacing: 2px;
     transform: translate(344px, 25px);
     border: 1px solid white;
+    font-weight: 500;
 }
 
 
@@ -200,5 +201,5 @@ table#tbl-board-view .btn2 {
 }
 
 a span{
-	color : black;
+/* 	color : black; */
 }

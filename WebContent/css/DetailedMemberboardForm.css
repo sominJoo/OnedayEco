@@ -4,7 +4,7 @@ section#board-container {
     position: relative;
     margin: 0 auto;
     text-align: center;
-    transform: translate(271px, 56px);
+    transform: translate(337px, 49px);
     width: 810px;
     float: left;
 }
@@ -50,17 +50,17 @@ table#tbl-board-view td {
     color: gray;
     background-color : #fafafa;
 }
-table#tbl-board-view .btn{
+.menu .btn{
     color: #000000;
     background-color: rgb(182 214 219);
     border: none;
     border-bottom: 1.3px solid rgb(155 182 195);
-    padding: 10px;
     font-size: 17px;
-    border-radius: 50px;
+    border-radius: 20px;
     font-weight: bolder;
-    width: 785px;
-    height: 50px;
+    width: 253px;
+    height: 43px;
+    margin: 5px 9.5px;
 }
 
 table#tbl-board-view p{
@@ -123,7 +123,7 @@ select:focus {
  	box-shadow:3px 3px 5px rgb(189 214 226);
 } 
 
-table#tbl-board-view .btn2 {
+.menu .btn2 {
     color: #000000;
     background-color: rgb(182 214 219);
     border: none;
@@ -131,9 +131,9 @@ table#tbl-board-view .btn2 {
     font-size: 17px;
     border-radius: 20px;
     font-weight: bolder;
-    width: 255px;
-    height: 50px;
-    margin: 2px;
+    width: 253px;
+    height: 43px;
+    margin: 5px 9.5px;
 }
 
 h2 {
@@ -158,15 +158,14 @@ div.td-container2 {
 }
 
 .comment-wrapper {
-    width: 404px;
+    width: 273px;
     background-color: white;
-    transform: translate(282px, 102px);
-    height: 711px;
+    transform: translate(337px, 95px);
+    /* height: 393px; */
     border-radius: 17px;
     display: inline-block;
-}
-.container {
-	padding : 2em;
+    /* margin: 40px; */
+    padding: 46px 0;
 }
 
 button,
@@ -186,7 +185,7 @@ button {
     font-size: 19px;
     font-weight: bold;
     margin: -10px auto;
-    padding: 18px 87px;
+    padding: 18px 38px;
     position: relative;
     text-transform: uppercase;
     background-color: #607d8b75;
@@ -218,3 +217,45 @@ button:hover {
   width: 100%;
 }
 
+.comment-wrapper #like {
+    background-color: #f4f4f4;
+    text-align: center;
+    width: 243px;
+    margin: 44px 17px 42px;
+    font-size: 17px;
+    height: 44px;
+    line-height: 44px;
+    border-radius: 43px;
+}
+
+#comment-enroll-btn {
+    background-color: #f4f4f4;
+    border: 1px solid #b3bfc5;
+    width: 46px;
+    height: 74px;
+    border-radius: 12px;
+    margin: 0 5px;
+}
+
+[name=comment] {
+	border: 1px solid #dfdfdf;
+    border-radius: 10px;
+}
+
+input[type=checkbox] {
+    display:none;
+}
+
+input[type=checkbox] + label {
+    background-image: url(../image/커뮤니티/like1.png);
+    background-size: 22px 21px;
+    display: inline-block;
+    cursor: pointer;
+    line-height: 21px;
+    padding-left: 30px;
+    background-repeat: no-repeat;
+}
+
+input[type=checkbox]:checked + label {
+    background-image: url('../image/커뮤니티/like2.png');
+}

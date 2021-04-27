@@ -1,3 +1,4 @@
+<%@page import="community.MemberBoard.model.vo.MemberboardExt"%>
 <%@page import="member.model.vo.Member"%>
 <%@page import="community.MemberBoard.model.vo.Memberboard"%>
 <%@page import="java.util.List"%>
@@ -10,24 +11,32 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/MemberBoard.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/Community.css">
 <%
-	List<Memberboard> list = (List<Memberboard>) request.getAttribute("list");
-%>
+	List<Memberboard> list = (List<Memberboard>) request.getAttribute("list");%>
 	<div class="container">
 	<button class="btn" type="button" onclick="memberboardEnroll()">팀원모집 글쓰기</button>
 	</div>
- 		<% if (list == null || list.isEmpty()) {%>
+ 		<%
+ 			if (list == null || list.isEmpty()) {
+ 		%>
  			<div class="noBoard">
 			조회된 게시글이 없습니다.		
  			</div>
 		<%-- 반복문을 통해 member객체를 하나씩 꺼내서, tr태그에 하나씩 넣기
 			 option값들에 대한 null처리 --%>
-		<% } else {  %>
+		<%
+			} else {
+		%>
 		<div class="wrapper2">
-		<% 	for(Memberboard mb : list){
-	%>
+		<%
+			for(Memberboard memberboard : list){
+			MemberboardExt mb = (MemberboardExt) memberboard;
+		%>
  	 	<div class="board-container" onclick="location.href='<%= request.getContextPath()%>/community/detailedMemberBoardView?no=<%= mb.getaId() %>';">
  		<div class="status">
- 			<p>모집중</p>
+ 		<p id="status">
+ 		<%= mb.getRequestTeamCnt() >= mb.getsTeamCount() ? "모집완료" : "모집중"%>
+ 		</p>
+ 		<input type="hidden" id="requestTeamCnt" value="<%= mb.getRequestTeamCnt()%>"/>	
  		</div>
  		<div class="img-container">
  			<img src="<%=request.getContextPath() %>/upload/memberboard/<%= mb.getMemberboardAttachment().getRenamedFilename() %>"/>
@@ -43,7 +52,7 @@
  		</p>
 		<p>
  		<span class="th">모집인원</span>
- 		<span class="td">신청자 : 4 / 정원 : <%= mb.getsTeamCount() %></span>
+ 		<span class="td" id="sTeamCnt">신청자 : 4 / 정원 : <%= mb.getsTeamCount() %></span>
  		</p>
 		<p>
  		<span class="th">게 시 일</span>
@@ -56,12 +65,12 @@
 		</div>
 </body>
  	<div class="page-bar">
- 	<%= request.getAttribute("pageBar") %>
+ 	<%= request.getAttribute("pageBar")%>
  	</div>
 </html>
 <script>
 function memberboardEnroll(){
-	<% if(loginMember != null) { %>
+	<% if(loginMember != null) {%>
 	location.href = "<%=request.getContextPath() %>/community/MemberboardForm";
 	<% } else {%>
 	alert("로그인 후 작성하실 수 있습니다.");

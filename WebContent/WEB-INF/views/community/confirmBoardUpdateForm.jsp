@@ -24,7 +24,7 @@
 <form name="boardUpdateFrm" action="<%=request.getContextPath() %>/community/communityBoardUpdate"
 enctype="multipart/form-data"
  method="post">
- 
+<section id="board-container">
 	<input type="hidden" name="no" value="<%=article.getArticle_id()%>"/>
 	<table id="tbl-board-view">
 	<tr>

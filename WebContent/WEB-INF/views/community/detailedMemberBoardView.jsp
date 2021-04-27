@@ -1,3 +1,4 @@
+<%@page import="community.MemberBoard.model.vo.MemberboardExt"%>
 <%@page import="member.model.service.MemberService"%>
 <%@page import="community.MemberBoard.model.vo.Challenge"%>
 <%@page import="community.MemberBoard.model.vo.Memberboard"%>
@@ -8,24 +9,31 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/DetailedMemberboardForm.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/Community.css">
 <script src="<%=request.getContextPath()%>/js/jquery-3.6.0.js"></script>
-<% 
-	Memberboard memberboard = (Memberboard)request.getAttribute("memberboard");
+<%
+int clickLike;
+if (session.getAttribute("clickLike") != null) {
+	clickLike = (Integer)session.getAttribute("clickLike");
+} else {
+	clickLike = 0;
 
-	boolean editable =
+}
+Memberboard memberboard = (Memberboard)request.getAttribute("memberboard");
+
+boolean editable =
 		loginMember != null &&
 		(
 		 	loginMember.getMemberId().equals(memberboard.getMemberId())
 		 	|| MemberService.ADMIN_ROLE.equals(loginMember.getMemberRole())
 		);
 %>
+<script>
+<% if(msg != null) { %>
+alert("<%= msg %>"); 
+<% } %>
+</script>
 
 <section id="board-container">
-<form
-	name="memberboardEnrollFrm"
-	action="<%=request.getContextPath() %>/community/MemberboardEnroll" 
-	method="post"
-	enctype="multipart/form-data"
-	>
+<form>
 	<h2>팀원모집 게시글 보기</h2>
 	<table id="tbl-board-view">
 		<tr>
@@ -44,8 +52,8 @@
 		<th  style="width:130px;" >
 			<div class="td-container2">조회수</div>
 		</th>
-				<td colspan="1" style="width:271px;" >
-			<input type="text" name="writer" value="<%= memberboard.getMemberId() %>" class="td td2" readonly/>
+			<td colspan="1" style="width:271px;" >
+			<input type="text" name="writer" value="<%= memberboard.getaReadCount() %>" class="td td2" readonly/>
 		</td>
 	</tr>
 		<tr>
@@ -80,8 +88,19 @@
 		</th>
 		<td colspan="3"><textarea name="content" class="td2-1" readonly><%= memberboard.getaContent() %></textarea></td>
 	</tr>
-	<tr>
-		<th colspan="4">
+</table>
+</form>
+</section>
+<div class="comment-wrapper" >
+<div class="container">
+<button class="btn" type="button" name="application" onclick="application()">지금바로 참가신청</button>
+</div>
+<div id="like">
+	  <input type="checkbox" name="like-checkbox" id="like1">
+		<label for="like1"><span id="like-cnt"><%= memberboard.getaLike() %></span>명이 좋아합니다.</label>
+		<input type="hidden" id="like-cnt-hidden" value="<%= memberboard.getaLike() %>"/>
+</div>
+<div class="menu">
 			<% if(editable) { %>
 			<input class="btn2 " type="button" value="목록보기" onclick="viewMemberboardList()">
 			<input class="btn2" type="button" value="수정하기" onclick="updateMemberboard()">
@@ -89,51 +108,92 @@
 			<% } else {%>
 			<input class="btn " type="button" value="목록보기" onclick="viewMemberboardList()">
 			<% } %>
-		</th>
-	</tr>
-</table>
-</form>
-</section>
-<!-- 댓글등록 테이블 -->
-<div class="comment-wrapper">
-<div class="container">
-<button class="btn" type="button" onclick="participate()">지금바로 참가신청</button>
-</div>
-<input type="button" value="좋아요" />
-<hr />
-<div class="comment-table1">
-<table>
-	<tr colspan="2">
-	<td>
-	<textarea name="comment" cols="50" rows="3"></textarea>
-	</td>
-	<td>
-	<input type="button" value="등록" />
-	</td>
-	</tr>
-</table>
 </div>
 </div>
 <!-- 삭제하기를 처리할 form -->
 <form
 	action="<%= request.getContextPath()%>/community/memberboardDelete"
-	name="memberboardDelFrm"
+	name="teamMemberboardDelFrm"
 	method="POST">
 <input type="hidden" name="no" value="<%= memberboard.getaId() %>" />
 </form>
+<form
+	action="<%= request.getContextPath()%>/community/requestTeam" 
+	name="requestTeamFrm"
+	method="POST">
+<% if(loginMember != null ){%>
+<input type="hidden" name="no" value="<%= memberboard.getaId()%>" />
+<input type="hidden" name="id" value="<%= loginMember.getMemberId()%>" />
+<input type="hidden" name="teamCnt" value="<%= memberboard.getsTeamCount() %>" />
+<% } %>
+</form>
+<!-- 좋아요를 처리할 폼 -->
+<% if(loginMember != null ){%>
+<form
+	action="<%= request.getContextPath()%>/community/memberboardLike" 
+	name="memberboardLikeFrm"
+	method="POST">
+<input type="hidden" name="no" value="<%= memberboard.getaId()%>" />
+<input type="hidden" name="id" value="<%= loginMember.getMemberId() %>" />
+</form>
+<% } %>
+<form
+	action="<%= request.getContextPath()%>/community/memberboardLikeCancel" 
+	name="memberboardLikeCancelFrm"
+	method="POST">
+<input type="hidden" name="no" value="<%= memberboard.getaId()%>" />
+</form>
 <script>
 function viewMemberboardList(){
-	location.href = "<%=request.getContextPath() %>/Community/Memberboard";
+	location.href = "<%=request.getContextPath() %>/community/memberboardList";
 }
 function updateMemberboard(){
 	location.href = "<%=request.getContextPath() %>/community/memberboardUpdate?no=<%= memberboard.getaId()%>";
 }
 function deleteMemberboard(){
 	if(confirm("게시글을 정말 삭제하시겠습니까?")){
-		$(document.memberboardDelFrm).submit();
+		$(document.teamMemberboardDelFrm).submit();
 	}
 }
-function participate(){
-	confirm("참가신청이 완료되었습니다.");
+function application(){
+	<% if(loginMember != null ){%>
+	var writer = $("[name=writer]").val();
+	var memberId = $("[name=id]").val();
+	if(writer == memberId){
+		alert("게시글 작성자는 자동으로 챌린지에 참가됩니다.");	
+		return false;
+	$(document.requestTeamFrm).submit();
+	}
+	<% } else {%>
+		alert("로그인 후 이용하실 수 있습니다.");
+	<% } %>
 }
+$(document).ready(function(){
+	if(<%= clickLike %> != null & <%= clickLike %> == <%= memberboard.getaId()%>){
+		$('label').css({"background-image":"url(../image/커뮤니티/like2.png)"});
+	} else if (<%= clickLike %> != null & <%= clickLike %> == 0){
+		$('label').css({"background-image":"url(../image/커뮤니티/like1.png)"});
+	}
+});
+$(document).ready(function(){
+    $("#like1").change(function(){
+    	<% if(loginMember != null ){%>
+    	if(<%= clickLike %> != null && <%= clickLike %> == <%= memberboard.getaId()%>){
+       	 if($("#like1").is(":checked")){
+        		$(document.memberboardLikeCancelFrm).submit();
+				$('label').css({"background-image":"url(../image/커뮤니티/like1.png)"});
+       	 }
+    	} else {
+       		 if($("#like1").is(":checked")){
+ 			   $(document.memberboardLikeFrm).submit();
+       		  }else {
+         		/* $("#like-cnt").html(likeCnt); */
+         		$(document.memberboardLikeCancelFrm).submit();
+        	 }
+    	}
+       		<% } else {%>
+    		alert("로그인 후 이용하실 수 있습니다.");
+    		<% } %>
+    });
+});
 </script>

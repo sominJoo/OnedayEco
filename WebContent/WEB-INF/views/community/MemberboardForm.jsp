@@ -7,8 +7,9 @@
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/MemberboardForm.css" />
 <script src="<%=request.getContextPath()%>/js/jquery-3.6.0.js"></script>
-<% List<Memberboard> list = (List<Memberboard>)request.getAttribute("list"); %>
-
+<%
+	List<Memberboard> list = (List<Memberboard>)request.getAttribute("list");
+%>
 <script>
 $(function(){
 	$(document.memberboardEnrollFrm).submit(boardValidate);	
@@ -28,7 +29,7 @@ function boardValidate(){
 		return false;
 	}
 	if ($('[name=upFile]')[0].files.length === 0) {
-		alert("인증 예시사진을 등록해주세요");
+		alert("인증 예시사진을 등록해주세요.");
 		return false;
 	}
 	return true;
@@ -39,27 +40,31 @@ function boardValidate(){
 <section id="board-container">
 <form
 	name="memberboardEnrollFrm"
-	action="<%=request.getContextPath() %>/community/MemberboardEnroll" 
+	action="<%=request.getContextPath()%>/community/MemberboardEnroll" 
 	method="post"
 	enctype="multipart/form-data"
 	>
 	<h2>팀원모집 게시글 작성</h2>
 	<table id="tbl-board-view">
-		<% if (list == null) {%>
+		<%
+			if (list == null) {
+		%>
 		<tr>
 			<td colspan="6" style="text-align:center;">신청가능한 챌린지가 없습니다.</td>
 		</tr>
-		<% }
-		else { %> 
+		<%
+			}
+				else {
+		%> 
 		<tr>
 		<th class="column" >
 			<div class="td-container1">제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목</div>
 		</th>
 		<td>
 		  <select name="challenge_id" class="td td2" required>
-		<% 
-		for(Memberboard mb : list){ 
-		if("L".equals(mb.getChallenge().getChallengeTermType())){
+		<%
+			for(Memberboard mb : list){ 
+				if("L".equals(mb.getChallenge().getChallengeTermType())){
 		%>
 			<option value="<%= mb.getChallenge().getChallengeId() %>"><%= mb.getChallenge().getChallengeName() %></option>
 		<% }} %>

@@ -43,13 +43,15 @@ public class ConfirmPointServlet extends HttpServlet {
 			else {
 				result = confirmService.insertPoint(confirm, user);			//개인 포인트
 			}
-			
+			int result2 =0;
 			
 			//포인트 지급 성공 시 
 			if(result>0) {
 				//게시물 포인트 지급 확인 update
-				int result2 = confirmService.updatePointCheck(boardNo,user);				
+				result2= confirmService.updatePointCheck(confirm,user);				
 			}
+			System.out.println("result@point"+result);
+			System.out.println("result2@point"+result2);
 			
 			response.sendRedirect(request.getContextPath()+"/community/confirmList");
 			

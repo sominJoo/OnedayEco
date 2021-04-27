@@ -34,7 +34,7 @@ public class TeamApplicateServlet extends HttpServlet {
 			if(applicationTimes >= 1) {
 				msg = "이미 신청한 챌린지가 있습니다. 해당 챌린지 종료 후 다시 도전하세요.";
 			}
-			else if(teamCnt == applicantsCnt) {
+			else if(teamCnt <= applicantsCnt) {
 				msg = "이미 모집인원이 가득차서 팀챌린지에 신청할 수 없습니다.";
 			} else {
 				requestTeamService.insertRequestTeam(no, memberId);
