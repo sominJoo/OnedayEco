@@ -1,24 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%
-	//사용자 쿠키처리
-    String SaveId = null;
-    Cookie[] cookies = request.getCookies();
-    if(cookies != null){
-        for(Cookie c : cookies){
-            String name = c.getName();
-            String value = c.getValue();
-            System.out.println(name + " : " + value);
-            if("SaveId".equals(name))
-                SaveId = value;
-      	}
-    }
-%>
+	String saveId =null;
+	Cookie[] cookies =request.getCookies();
+	if(cookies != null ){
+		for(Cookie c : cookies){
+		String name =c.getName();
+		String value = c.getValue();
+		System.out.println(name + " : " + value);
+		if("saveId".equals(name))
+			saveId = value;
+		}
+	}
+	%>
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
 
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>로그인</title>
 <link rel="stylesheet"
@@ -46,6 +45,12 @@
 
 <%@ include file="/WEB-INF/views/common/header.jsp"%>
 <!-- msg, LoginMember 포함 -->
+<script>
+<% if(msg != null) { %> 
+	alert("<%= msg %>"); 
+<% } %>
+</script>
+
 	<div class="Container-bar">
 		<ul>
 			<li class="Container-bar-li-left" style="font-size: 30px;"><a
@@ -59,45 +64,46 @@
 		<form id="loginFrm" action="<%=request.getContextPath()%>/login/login" method="POST">
 			<!-- LoginServlet -->
 			<div class="Board">
-				<span class="Board-icon"><i class="far fa-id-badge"	style="font-size: 100px;"></i></span>
+				<span class="Board-icon"><i class="far fa-id-badge"	style="font-size: 80px;"></i></span>
 				<div class="form">
 					<input type="text" name="memberId" id="memberId" placeholder="ID"
-						value="<%=SaveId != null ? SaveId : ""%>">
+						  value="<%= saveId != null ? saveId : "" %>">
 				</div>
 			</div>
 			<div class="Board-Pw">
 				<span class="Board-icon1"><i class="fas fa-key"
-					style="font-size: 100px;"></i> </span>
+					style="font-size: 80px;"></i> </span>
 				<div class="form-Pw">
 					<input type="password" id="memberPw" name="memberPw" placeholder="●●●●">
 				</div>
 			</div>
+			<div class="Board-chk">
+				<input type="checkbox" name="saveId" id="saveId"
+				<%= saveId != null ? "checked" : ""%>/>
+				<label><span class="Board-chk-span">아이디저장(Save ID)</span></label>
+			</div>
 		</form>
 		
 		<div class="Board-chk-sns">
-			<div class="Board-chk">
-				<label><input type="checkbox" name="saveId" id="saveId"
-					<%= SaveId != null ? "checked" : ""%>><span
-					class="Board-chk-span">아이디저장(Save ID)</span></label>
-			</div>
 			<div class="SNS-h3">
 				<h2 class="SNS">소셜로그인</h2>
-				<!-- 구글 로그인 -->
-				<div class="Google">
-					<div class="g-signin2" data-onsuccess="onSignIn"></div>
-					<script>
-					function onSignIn(googleUser) {
-						  var profile = googleUser.getBasicProfile();
-						var id = "G_" + profile.getId();
-						var name = profile.getName();
-						var nickname = profile.getName();
-						var email = profile.getEmail();
-						var mobile = null;
-						snsloginMember(id, name, email, nickname, mobile);
+			         <!-- 구글 로그인 -->
+            <div class="Google">
+               <div class="g-signin2" data-onsuccess="onSignIn"></div>
+               <script>
+               function onSignIn(googleUser) {
+                  var profile = auth2.currentUser.get()
+                           .getBasicProfile();
+                  var id = "G_" + profile.getId();
+                  var name = profile.getName();
+                  var nickname = profile.getName();
+                  var email = profile.getEmail();
+                  var mobile = null;
+                  snsloginMember(id, name, email, nickname, mobile);
 
-					}
-					</script>
-				</div>
+               }
+               </script>
+            </div>
 				<!-- 카카오 로그인 -->
 				<div class="SNS_img" id=" kakaoLogin">
 					<a onclick="kakaoLogin();"><img
@@ -116,17 +122,14 @@
 						naverLogin.init();
 					</script>
 				</div>
-		
-				<h4 class="Find-Id">아이디 찾기(Find Id)</h4>
-				<h4>비밀번호 찾기(Find Pw)</h4>
 			</div>
 			<div class="btn-wrapper">
 				<div class="btn">
-	                 <input type="button" name="Login" id="Login" value="로그인" onclick="loginFrmSubmit();">
+	                 <input type="button" name="Login" id="Login" value="LOGIN" onclick="loginFrmSubmit();">
 				</div>
 		        <div class="btn1">
 		            <a href="<%=request.getContextPath()%>/login/member_sing_up">
-		                <input type="button" name="Member" id="Member" value="회원가입" >
+		                <input type="button" name="Member" id="Member" value="Sing up" >
 		            </a>
 		        </div>
 	        </div>
@@ -143,6 +146,7 @@
 				<input type="button" value="로그아웃" onclick="signOut();" />
 				<%} else{%>
 				<input type="button" value="로그아웃" onclick="logout(); " />
+				
 				<%}%>
 			</div>
 			<%}%>
@@ -180,6 +184,20 @@
 	    });
 		_auth2.disconnect();
 	}
+	
+    function onSignIn() {
+		var auth2 = gapi.auth2.getAuthInstance();
+		if (auth2.isSignedIn.get()) {
+			var profile = auth2.currentUser.get().getBasicProfile();
+			var id = "G_" + profile.getId();
+			var name = profile.getName();
+			var nickname = profile.getName();
+			var email = profile.getEmail();
+			var mobile = null;
+			snsloginMember(id, name, email, nickname, mobile);
+		}
+	}
+
 	$(function() {
 		/*
 		 * 로그인 폼 유효성 검사 

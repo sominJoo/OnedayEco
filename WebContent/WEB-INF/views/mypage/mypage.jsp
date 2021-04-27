@@ -677,7 +677,7 @@
                     <td class="day" tabindex="0"><span class="day-number  day-click">29</span></td>
                     <td class="day" tabindex="0"><span class="day-number  day-click">30</span></td>
                     <td class="day" tabindex="0"><span class="day-number  day-click">31</span></td>
-                    <td class="day next-mon" tabindex="0"><span class="day-number">1</span></td>
+                    <td class="day next-mon" tabindex="0"><span class="day-number next-mon-day">1</span></td>
                 </tr>
             </tbody>
     <% break; }%>
@@ -777,9 +777,10 @@
     		String sdf = new SimpleDateFormat("yyyy-MM-dd").format(mp.getPointDate());
     		team_point_date = sdf.substring(sdf.length()-2, sdf.length());
     	%>
-			$('span:contains("<%= team_point_date %>")').css('color','#81D4FA');
+		$('span:contains("<%= team_point_date %>")').css('color','#81D4FA');
 
     	<%}%>	
+		$(".next-mon span").css('color',' rgba(0, 0, 0, 0.3)');
     });
     
     var openPopup= function(event){
