@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원정보수정</title>
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/css/Member_Modify.css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/css/MemberPw_Modify.css">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
@@ -35,7 +35,6 @@
 		action="<%=request.getContextPath()%>/mypage/modifyPassword" 
 		method="POST" >
 	    <div class="Board-1">
-	        <hr class="Board-h3">
 	        <ul>
 	            <!--유효성 검사-->
 	            <li><a href=""> <span class="">현재 비밀번호</span></a></li>
