@@ -33,7 +33,7 @@ body {
   display: flex;
   position: fixed;
   top: 10px;
-  margin-left:-90px;
+  margin-left: -4.7vw;
 }
 
 .wrapper .top_navbar .slide-menu {
@@ -308,31 +308,36 @@ body {
 
 /*인기게시물 start*/
 .Box {
-  background-color: white;
+background-color: white;
     width: 36vw;
     height: 22vw;
     margin-left: 53vw;
     transform: translateY(2vw);
     border-radius: 50px;
+    font-size: 23px;
+    white-space: nowrap;
 }
+
 
 /* 인기게시물 start*/
 .Box1 {
   background-color: white;
     width: 36vw;
     height: 22vw;
-    transform: translateY(256px);
+    margin-left: 8vw;
+    margin-top: -19vw;
+    transform: translateY(-1vw);
     border-radius: 50px;
     text-align: center;
-    margin-left: 12vw;
-    margin-top: -19vw;
-    transform: translateY(-16px);
 }
 .Box1 h1{
 	text-transform: uppercase;
     color: #00008b;
     font-size: 70px;
 }
+.Box-h1-img {
+	    transform: translateY(10px);
+	}
 .Box1 img{
     transform: translateY(24px);
 }
@@ -350,5 +355,12 @@ body {
 #loginMember-Nickname{
 	font-size: 25px;
 }
+.Box-h1{
+	    font-size: 70px;
+    text-align: center;
+    color: #00008b;
+    margin-bottom: 2vw;
+}
+
 
 /*인기게시물 end*/
