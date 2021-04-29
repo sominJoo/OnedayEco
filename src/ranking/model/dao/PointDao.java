@@ -163,7 +163,7 @@ public class PointDao {
 	public int insertRankingBadge_personal(Connection conn, String user, int rank) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String query ="insert into badge values (seq_badge_id.nextval, null, ?, (select badge_img_id from badge_image where lanking=? and badge_name like 'Rm%') , sysdate)";
+		String  query  = prop.getProperty("insertRankingBadge_personal");
 		try {
 			pstmt=conn.prepareStatement(query);
 			pstmt.setString(1,user);
@@ -177,6 +177,8 @@ public class PointDao {
 		}
 		return result;
 	}
+	
+	
 	public int insertRankingBadge_team(Connection conn, String user, int rank) {
 		int result = 0;
 		PreparedStatement pstmt = null;

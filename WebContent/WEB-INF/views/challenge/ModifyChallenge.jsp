@@ -36,9 +36,7 @@
 	<tr>
 		<td>챌린지 설명</td>
 		<td>
-			<textarea id="content" name="content" required>
-				<%= challenge.getChallenge_info() %>
-			</textarea>
+			<textarea id="content" name="content" required><%= challenge.getChallenge_info() %></textarea>
 		</td>
 	</tr>
 	<tr>

@@ -38,7 +38,6 @@ public class UpdateChallengeServlet extends HttpServlet {
 		if(ShortChallengeServlet.nowChallenge.equals("short")) {
 			totalContents = challengeService.selectChallengeCount("short");
 			list = challengeService.selectList("short",start, end);
-//			System.out.println("test");
 		}
 		else {
 			list = challengeService.selectList("long",start, end);

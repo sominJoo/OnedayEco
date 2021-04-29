@@ -38,10 +38,6 @@ public class LongChallengeServlet extends HttpServlet {
 			throw new ChallengeException("기간 챌린지 목록이 존재하지 않습니다.");
 		}
 		
-		//\n개행문자를 <br/>태그로 변경
-		//MvcUtils
-		//MvcUtils.convertLineFeedToBr(list.)
-		
 		//pageBar
 		int totalContents = challengeService.selectChallengeCount("long");
 		String url = request.getRequestURI();

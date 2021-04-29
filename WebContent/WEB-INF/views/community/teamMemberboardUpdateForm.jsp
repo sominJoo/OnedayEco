@@ -12,7 +12,6 @@
 $(function(){
 	$(document.teamMemberboardEnrollFrm).submit(boardValidate);	
 });
-
 /**
 * boardEnrollFrm 유효성 검사
 */

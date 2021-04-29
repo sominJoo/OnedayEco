@@ -7,12 +7,12 @@
     pageEncoding="UTF-8"%>
 <script src="<%=request.getContextPath()%>/js/jquery-3.6.0.js"></script>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<%@ include file="/WEB-INF/views/common/containerBar.jsp" %>
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/TeamMemberBoard.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/Community.css">
 <%
-List<TeamMemberboard> list = (List<TeamMemberboard>) request.getAttribute("list");%>
+List<TeamMemberboard> list = (List<TeamMemberboard>) request.getAttribute("list");
+%>
 	<div class="container">
 	<button class="btn" type="button" onclick="teamMemberboardEnroll()">정보공유 글쓰기</button>
 	</div>
@@ -25,7 +25,8 @@ List<TeamMemberboard> list = (List<TeamMemberboard>) request.getAttribute("list"
 		<% 
 			for(TeamMemberboard tmb : list){ 		
 		%>	
- 	 	<div class="board-container" onclick="location.href='<%= request.getContextPath()%>/community/detailedTeamMemberBoardView?no=<%= tmb.getTeamAId() %>';">
+
+ 	 	<div class="board-container" onclick="location.href='<%= request.getContextPath()%>/community/detailedTeamMemberboardView?no=<%= tmb.getTeamAId() %>';">
  		<div class="status"><p><%= tmb.getMemberId() %></p></div>
  		<% if (tmb.getaTeamAttachment() != null){ %>
  		<div class="img-container">

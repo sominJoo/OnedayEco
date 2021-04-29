@@ -15,11 +15,13 @@ import community.MemberBoard.model.service.MemberboardService;
 import community.MemberBoard.model.vo.Challenge;
 import community.MemberBoard.model.vo.Memberboard;
 import community.MemberBoard.model.vo.MemberboardAttachment;
+import community.RequestTeam.model.service.RequestTeamService;
 
 @WebServlet("/community/MemberboardEnroll")
 public class MemberboardEnrollServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private MemberboardService memberboardService = new MemberboardService();
+	private RequestTeamService requestTeamService = new RequestTeamService();
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -45,7 +47,6 @@ public class MemberboardEnrollServlet extends HttpServlet {
 		int sTeamCount = "".equals(multipartRequest.getParameter("s_team_count")) ? 10 : Integer.parseInt(multipartRequest.getParameter("s_team_count"));
 		
 		String aContent = multipartRequest.getParameter("content");	
-		
 		String originalFilename = multipartRequest.getOriginalFileName("upFile");
 		String renamedFilename = multipartRequest.getFilesystemName("upFile"); 
 		
@@ -64,6 +65,9 @@ public class MemberboardEnrollServlet extends HttpServlet {
 		}
 		
 		memberboardService.insertMemberboard(memberboard);
+		int aId = memberboard.getaId();
+		requestTeamService.insertRequestTeam(aId, memberId);
+		
 		String location = request.getContextPath();
 		location += "/Community/MemberboardView?no=" + memberboard.getaId();
 

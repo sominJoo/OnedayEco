@@ -11,17 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import common.MemberboardUtils;
 import community.MemberBoard.model.exception.MemberboardException;
-import community.MemberBoard.model.service.MemberboardService;
-import community.MemberBoard.model.vo.Memberboard;
 import community.TeamMemberBoard.model.service.TeamMemberboardService;
 import community.TeamMemberBoard.model.vo.TeamComment;
 import community.TeamMemberBoard.model.vo.TeamMemberboard;
 
-/**
- * Servlet implementation class DetailedTeamMemberboardView
- */
-@WebServlet("/community/detailedTeamMemberboardView")
-public class DetailedTeamMemberboardViewServlet extends HttpServlet {
+@WebServlet("/community/detailedTeamMemberboardView2?")
+public class DetailedTeamMemberBoardView2Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private TeamMemberboardService teamMemberboardService = new TeamMemberboardService();	
 
@@ -29,8 +24,6 @@ public class DetailedTeamMemberboardViewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(111);
-		
 		// 1. 사용자 입력값 : no
 		try {
 		int no  = 0; 

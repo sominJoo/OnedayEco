@@ -24,11 +24,9 @@ public class RankingBadgeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			int rank = Integer.parseInt(request.getParameter("rank"));
-			String user = (request.getParameter("user"));
-				
+			String user = (request.getParameter("user"));				
 			
 			int result = new PointService().insertRankingBadge_personal(user,rank);	
-			
 			
 			response.sendRedirect(request.getContextPath()+"/community/confirmList");
 			

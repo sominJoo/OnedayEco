@@ -5,9 +5,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<%@ include file="/WEB-INF/views/common/containerBar.jsp" %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/DetailedMemberboardForm.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/Community.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/ContainerBar1.css">
 <script src="<%=request.getContextPath()%>/js/jquery-3.6.0.js"></script>
 <%
 int clickLike;
@@ -15,7 +15,6 @@ if (session.getAttribute("clickLike") != null) {
 	clickLike = (Integer)session.getAttribute("clickLike");
 } else {
 	clickLike = 0;
-
 }
 Memberboard memberboard = (Memberboard)request.getAttribute("memberboard");
 
@@ -27,9 +26,6 @@ boolean editable =
 		);
 %>
 <script>
-<% if(msg != null) { %>
-alert("<%= msg %>"); 
-<% } %>
 </script>
 
 <section id="board-container">
@@ -162,10 +158,12 @@ function application(){
 	if(writer == memberId){
 		alert("게시글 작성자는 자동으로 챌린지에 참가됩니다.");	
 		return false;
-	$(document.requestTeamFrm).submit();
+	} else {
+	$(document.requestTeamFrm).submit();		
 	}
 	<% } else {%>
 		alert("로그인 후 이용하실 수 있습니다.");
+		return false;
 	<% } %>
 }
 $(document).ready(function(){

@@ -63,12 +63,11 @@ public class TeamMemberboardEnrollServlet extends HttpServlet {
 	}
 	
 	teamMemberboardService.insertTeamMemberboard(teamMemberboard);
-	String location = request.getContextPath();
-	location += "/community/detailedTeamMemberboardView?no=" + teamMemberboard.getTeamAId();
+	String location = request.getContextPath() + "/community/detailedTeamMemberboardView?no=" + teamMemberboard.getTeamAId();
 	System.out.println("teamMember_TEAMAID = " + teamMemberboard.getTeamAId());
 
 	HttpSession session = request.getSession();
-	session.setAttribute("msg", "팀게시판 게시글 등록완료");
+	session.setAttribute("msg", "팀게시판 게시글 등록에 성공했습니다.");
 	response.sendRedirect(location);
 	
 } catch(Exception e) {

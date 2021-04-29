@@ -34,7 +34,7 @@ public class JoinChallengeServlet extends HttpServlet {
 
 			request.getSession().setAttribute("msg", msg);
 
-			System.out.println("JoinChallengeServlet : " + ShortChallengeServlet.nowChallenge);
+			//System.out.println("JoinChallengeServlet : " + ShortChallengeServlet.nowChallenge);
 
 			if (ShortChallengeServlet.nowChallenge == "short") {
 				response.sendRedirect(request.getContextPath() + "/challenge/ShortChallenge");

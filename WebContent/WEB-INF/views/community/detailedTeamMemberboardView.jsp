@@ -8,13 +8,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp"%>
-<%@ include file="/WEB-INF/views/common/containerBar.jsp"%>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/DetailedTeamMemberboardForm.css" />
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/Community.css">
 <script src="<%=request.getContextPath()%>/js/jquery-3.6.0.js"></script>
 <%
+msg = (String) session.getAttribute("msg");
+if (msg != null)
+	session.removeAttribute("msg");
 int clickLike;
 if (session.getAttribute("clickLike") != null) {
 	clickLike = (Integer) session.getAttribute("clickLike");
@@ -108,10 +110,6 @@ alert("<%=msg%>");
 <!-- 댓글등록 테이블 -->
 <div class="comment-wrapper">
 	<div class="container">
-		<div id="like">
-			<input type="checkbox" name="like-checkbox" id="like1"> <label
-				for="like1"><%=teamMemberboard.getaLike()%>명이 좋아합니다.</label>
-		</div>
 		<div class="comment-table1">
 			<form
 				action="<%=request.getContextPath()%>/community/teamMemberboardCommentInsert"
@@ -224,7 +222,7 @@ alert("<%=msg%>");
 </form>
 <script>
 function viewTeamMemberboardList(){
-	location.href = "<%=request.getContextPath()%>/community/teamMemberboard";
+	location.href = "<%=request.getContextPath()%>/community/teamMemberboard2";
 }
 function updateTeamMemberboard(){
 	location.href = "<%=request.getContextPath()%>/community/teamMemberboardUpdate?no=<%=teamMemberboard.getTeamAId()%>";

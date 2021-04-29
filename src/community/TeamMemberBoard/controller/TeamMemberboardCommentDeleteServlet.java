@@ -28,14 +28,13 @@ public class TeamMemberboardCommentDeleteServlet extends HttpServlet {
 			
 			//3. 사용자피드백 & 리다이렉트
 			request.getSession().setAttribute("msg", "댓글을 삭제했습니다.");
-			response.sendRedirect(request.getContextPath() + "/community/detailedTeamMemberBoardView?no=" + boardNo);
+			response.sendRedirect(request.getContextPath() + "/community/detailedTeamMemberboardView2?no=" + boardNo);
 		
 		} catch(Exception e) {
 			e.printStackTrace();
 			throw e;
 		}
 	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}

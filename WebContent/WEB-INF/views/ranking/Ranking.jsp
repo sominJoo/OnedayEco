@@ -3,11 +3,16 @@
 <%@page import="java.util.Calendar"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="member.model.service.MemberService"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="member.model.service.MemberService"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
+ <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/Ranking.css" />
+<script src="<%=request.getContextPath()%>/js/jquery-3.6.0.js"></script>
 <style>
 .btn{
 	border: none;
@@ -22,9 +27,13 @@
 	outline: 0;
 }
 </style>
-<script src="<%=request.getContextPath()%>/js/jquery-3.6.0.js"></script>
 <%
-
+	String one = (String)request.getAttribute("one");
+	String two = (String)request.getAttribute("two");
+	String three = (String)request.getAttribute("three");
+	List<PersonalPoint> list = (List<PersonalPoint>) request.getAttribute("list");
+%>
+<%
 	Calendar now = Calendar.getInstance();
 	
 	String time1 = Integer.toString(now.get(Calendar.DATE));
@@ -36,12 +45,9 @@
 	boolean editable =false;
 	if(loginMember !=null)
 		editable= MemberService.ADMIN_ROLE.equals(loginMember.getMemberRole());
-
-	String one = (String)request.getAttribute("one");
-	String two = (String)request.getAttribute("two");
-	String three = (String)request.getAttribute("three");
-	List<PersonalPoint> list = (List<PersonalPoint>) request.getAttribute("list");
 %>
+
+
 
 <div class="wrapper_1">
 	<div class="wrapper_2">
@@ -85,41 +91,44 @@
 		%>
 		<%
 			for(PersonalPoint pp : list){
-				int a = 0;
-				++a;
 		%>
 		<div class="rr r1">
 			<div class="row rn_1"><%= pp.getrNum() %></div>
 			<div class="row rn_2"><%= pp.getMemberId() %></div>
 			<div class="row rn_3"><%= pp.getPoint() %></div>
 			
-			<%if(editable){ %>
+			
+		<%if(editable){ %>
 			<div class="row rn_4">
 				<input type="button" class ="btn" value="뱃지 지급" 
 				data-rank = "<%= pp.getrNum() %>" 
 				data-user = "<%= pp.getMemberId() %>" 
 				onclick="badge(event)"/>
 			</div>
-			
 			<%} %>
-			
+		
 		</div>
  	<% 		} %>
 	<% 		} %>
-<!-- 		<div class="rr my">
-			<div class="row rn_1">8</div>
-			<div class="row rn_2">kimhaejun</div>
-			<div class="row rn_3">130</div>
-			<div class="row rn_4">130</div>
-		</div> -->
 	</div>
 	<div class="type2">
 		<div class="type2-1" onclick="teamRanking()">팀별랭킹</div>
-	<div class="type2-1" onclick="teamMemberRanking()">팀원별랭킹</div>	
+	<div class="type2-1" onclick="teamMemberRanking()">팀원별랭킹</div>
+	<% if (loginMember  != null) { %>
+	
+	<% } %>
  	<div class="page-bar">
  	<%= request.getAttribute("pageBar")%>
  	</div>
 	</div>
+<% if(loginMember != null)  {%>
+<form
+	action="<%= request.getContextPath() %>/ranking/TeamMemberRanking"
+	name="teamMemberRankingFrm"
+	method="POST">
+<input type="hidden" name="member_id" value="<%= loginMember.getMemberId()%>"/>	
+</form>
+<% } %>
 </div>
 </body>
 <footer>
@@ -130,7 +139,11 @@ function teamRanking() {
 	location.href="<%=request.getContextPath() %>/ranking/TeamRanking";
 }
 function teamMemberRanking(){
-	location.href="<%=request.getContextPath() %>/ranking/TeamMemberRanking";	
+	<% if (loginMember  != null) { %>
+		$(document.teamMemberRankingFrm).submit();		
+		<% } else {  %>
+		alert("로그인 후 사용하실 수 있습니다.");
+		<% }%>
 }
 
 function badge(event){
@@ -149,6 +162,5 @@ function badge(event){
 			console.log(xhr, status,err);
 		}
 	});	
-	
 }
 </script>

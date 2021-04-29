@@ -3,8 +3,10 @@
 <%@page import="community.MemberBoard.model.vo.Memberboard"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script src="<%=request.getContextPath()%>/js/jquery-3.6.0.js"></script>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/MemberboardForm.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/ContainerBar1.css">
 <script src="<%=request.getContextPath()%>/js/jquery-3.6.0.js"></script>
 <%
 	Memberboard memberboard = (Memberboard)request.getAttribute("memberboard");

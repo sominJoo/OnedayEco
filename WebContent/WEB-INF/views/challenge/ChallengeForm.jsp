@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/ChallengeForm.css">
 
 <div id="challengeform-container">
+<h2 class="h2">챌린지 추가</h2>
 <form
 	action="<%= request.getContextPath() %>/challenge/AdminChallenge"
 	name="insertChallengeFrm"

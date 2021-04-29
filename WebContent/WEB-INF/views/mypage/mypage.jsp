@@ -787,7 +787,8 @@
 		//클릭된 이미지, 클릭된 이미지의 date 가져오기
    		var $ele= $(event.target);
 		console.log($ele);
-		var url ="<%=request.getContextPath() %>/mypage/mypagePopup?month="+<%= month%>  + "&date="+$ele.data('date');
+		var url ="<%=request.getContextPath() %>/mypage/mypagePopup?month="+<%= month%>  
+			+ "&date="+$ele.data('date');
 		var title= "DetailPopup";
     
 		window.open(url, title, "width=1000, height=600,  resizable=no");
@@ -798,7 +799,8 @@
 		//클릭된 이미지, 클릭된 이미지의 date 가져오기
    		var $ele= $(event.target);
 		console.log($ele.text());
-		var url ="<%=request.getContextPath() %>/mypage/mypagePopup?month="+<%= month%>  + "&date="+$ele.text();
+		var url ="<%=request.getContextPath() %>/mypage/mypagePopup?month="+<%= month%>  
+			+ "&date="+$ele.text();
 		var title= "DetailPopup";
     
 		window.open(url, title, "width=1000, height=600,  resizable=no");

@@ -6,12 +6,12 @@
     pageEncoding="UTF-8"%>
 <script src="<%=request.getContextPath()%>/js/jquery-3.6.0.js"></script>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<%@ include file="/WEB-INF/views/common/containerBar.jsp" %>
+
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/MemberBoard.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/Community.css">
 <%
-	List<Memberboard> list = (List<Memberboard>) request.getAttribute("list");%>
+	List<Memberboard> list = (List<Memberboard>) request.getAttribute("list");
+%>
 	<div class="container">
 	<button class="btn" type="button" onclick="memberboardEnroll()">팀원모집 글쓰기</button>
 	</div>

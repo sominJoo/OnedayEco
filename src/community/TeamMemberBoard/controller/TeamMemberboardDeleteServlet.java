@@ -30,7 +30,7 @@ public class TeamMemberboardDeleteServlet extends HttpServlet {
 			// 3. 리다이렉트 & 사용자 피드백 (dml - 리다이렉트 필수)
 			HttpSession session = request.getSession();
 			session.setAttribute("msg", "해당 게시글을 성공적으로 삭제하였습니다.");
-			response.sendRedirect(request.getContextPath() + "/community/teamMemberboard");		
+			response.sendRedirect(request.getContextPath() + "/community/detailedTeamMemberBoardView2");		
 		} catch(Exception e) {
 			// 예외로깅 작업 - controller에서 한번만 하면 됨
 			e.printStackTrace();

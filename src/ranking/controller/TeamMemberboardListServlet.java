@@ -1,4 +1,4 @@
-package community.TeamMemberBoard.controller;
+package ranking.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -20,7 +20,7 @@ import community.TeamMemberBoard.model.service.TeamMemberboardService;
 import community.TeamMemberBoard.model.vo.TeamMemberboard;
 import member.model.vo.Member;
 
-@WebServlet(urlPatterns = {"/community/teamMemberboard", "/community/teamMemberboard2"})
+@WebServlet("/community/teamMemberboard")
 public class TeamMemberboardListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private TeamMemberboardService teamMemberboardService = new TeamMemberboardService();
@@ -69,6 +69,7 @@ public class TeamMemberboardListServlet extends HttpServlet {
 			request.setAttribute("pageBar", pageBar);
 			request.setAttribute("list", list);
 			request.setAttribute("msg", msg);
+
 			request.getRequestDispatcher("/WEB-INF/views/community/teamMemberboard.jsp")
 				.forward(request, response);
 		} else if(sTeamCount > applicantsCnt) {
@@ -78,6 +79,9 @@ public class TeamMemberboardListServlet extends HttpServlet {
 			request.getSession().setAttribute("msg", "챌린지를 신청해주세요.");
 			response.sendRedirect(request.getContextPath() + "/community/community");
 			}
+	} else {
+		request.getSession().setAttribute("msg", "로그인 후 이용해주세요.");
+		response.sendRedirect(request.getContextPath() + "/community/community");
 	}
 }
 	}}
